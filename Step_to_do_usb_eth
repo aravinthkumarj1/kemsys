@@ -1,0 +1,83 @@
+USB-Ethernet:-
+=> Enable CONFIG_USB_ETH
+
+
+On board:-
+
+=> plug otg device cable into pc from board
+=> Now check in PC. 
+	--> ifconfig -a
+
+********************************************************************************
+
+root@manoj:/# ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 10:1f:74:17:25:4f  
+          inet addr:192.168.2.20  Bcast:192.168.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::121f:74ff:fe17:254f/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:41646 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:28527 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:34894503 (34.8 MB)  TX bytes:4475336 (4.4 MB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:6850 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6850 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:524050 (524.0 KB)  TX bytes:524050 (524.0 KB)
+
+usb0      Link encap:Ethernet  HWaddr 3a:4f:aa:47:30:c6  
+          inet6 addr: fe80::384f:aaff:fe47:30c6/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:85 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:941 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:6300 (6.3 KB)  TX bytes:179230 (179.2 KB)
+
+*********************************************************************************
+=> Check in Board
+	--> ifconfig -a 
+
+**********************************************************************************
+
+root@freescale /$ ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 00:04:9F:02:6A:B2  
+          BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lo        Link encap:Local Loopback  
+          LOOPBACK  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+sit0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-48-00-00-00-00-00-00-00-00-00  
+          NOARP  MTU:1480  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+usb0      Link encap:Ethernet  HWaddr FE:63:C8:FB:42:35  
+          inet addr:192.168.0.100  Bcast:192.168.0.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1448 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:334 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:252732 (246.8 KiB)  TX bytes:22740 (22.2 KiB)
+
+
+************************************************************************************
+
+=> In board
+		--> ifconfig 192.168.0.100
+=> In PC
+		--> sudo ifconfig 192.168.0.1
+=> ping each other. 
