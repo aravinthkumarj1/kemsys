@@ -1,0 +1,38 @@
+Steps for use USB-AUDIO:-
+	=> Enable in kernel config
+		--> USB_GADGET_drivers (Audio gadget)
+
+	=> Check in board 
+		--> cat /proc/asound/cards
+
+**************************************************************************
+root@freescale /$ cat /proc/asound/cards 
+ 0 [wm8962audio    ]: wm8962-audio - wm8962-audio
+                      wm8962-audio
+ 1 [imxhdmisoc     ]: imx-hdmi-soc - imx-hdmi-soc
+                      imx-hdmi-soc
+ 2 [UAC2Gadget     ]: UAC2_Gadget - UAC2_Gadget
+                      UAC2_Gadget 0
+***************************************************************************
+	=> Connect usb to PC from board
+	=> Check in PC
+		--> cat /proc/asound/cards
+
+***************************************************************************
+manoj@manoj:~/aravinth/iwtest$ cat /proc/asound/cards
+ 0 [PCH            ]: HDA-Intel - HDA Intel PCH
+                      HDA Intel PCH at 0xc6500000 irq 50
+ 1 [Gadget         ]: USB-Audio - Linux USB Audio Gadget
+                      Linux 3.14.28-132791-g40ddbd6-dirty with 2184000.usb Linux USB Audio Gadget at
+****************************************************************************
+
+	=> In board run the command(record and play at a time)
+		--> arecord -f dat -t wav -D hw:2,0 | aplay -D hw:0,0
+	=> In PC play the song
+		--> aplay sample.wav
+
+Note:-
+1) Using alsamixer to set a headphone gain as HIGH
+	=> alsamixer
+	=> select headphone 
+	=> UP arrow to increase the gain as high
