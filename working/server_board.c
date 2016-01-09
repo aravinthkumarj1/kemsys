@@ -24,7 +24,10 @@ int main(void)
 	int s, i, slen=sizeof(si_other);
 	char buf[BUFLEN],itr[BUFLEN];
 	char buffer[200][200];
-    
+  	
+	pipe(sockets);
+	child = fork();
+
 	if ((s=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP))==-1)
 	diep("socket");
     
@@ -38,6 +41,8 @@ int main(void)
     	
 	while(1)	
 	{
+	sleep(2);
+	
 	printf("Waiting for USER...\n");
 	if (recvfrom(s, buf, BUFLEN, 0, &si_other, &slen)==-1)
 	diep("recvfrom()");

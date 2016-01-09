@@ -34,16 +34,19 @@ int main(void)
 	if (bind(s, &si_me, sizeof(si_me))==-1)
 	diep("bind");
     	
-	while(1)
+	while(1)	
 	{
 	printf("Waiting for USER...\n");
 	if (recvfrom(s, buf, BUFLEN, 0, &si_other, &slen)==-1)
 	diep("recvfrom()");
 	printf("Kumar-Received packet from %s:%d\nData: %s\n\n", 
 		inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port), buf);
+	
+	if (sendto(s, buf, BUFLEN, 0, &si_other, slen)==-1)
+        diep("sendto()");
+	
 	int buffer;
-	buffer= *buf;
-	printf("Buffer is %d\n",buffer);
+	buffer= atoi(buf);
 	switch (buffer) {
 		
 		case 11:
@@ -55,6 +58,9 @@ int main(void)
         		diep("recvfrom()");
         		printf("Kumar-Received packet from %s:%d\n Validation-Data: %s\n\n",
                 		inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port), buf); 
+			
+			if (sendto(s, buf, BUFLEN, 0, &si_other, slen)==-1)
+                        diep("sendto()");
 			}
 			break;
 		case 12:
@@ -64,13 +70,12 @@ int main(void)
 		        diep("recvfrom()");
         		printf("Kumar-Received packet from %s:%d\n Registeration-Data: %s\n\n",
                 		inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port), buf);
+			if (sendto(s, buf, BUFLEN, 0, &si_other, slen)==-1)
+        		diep("sendto()");	
 			break;
 	}
 
-	if (sendto(s, buf, BUFLEN, 0, &si_other, slen)==-1)
-	diep("sendto()");
  	}
- 
 	close(s);
 	return 0;
 	}
