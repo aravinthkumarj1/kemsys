@@ -1,4 +1,14 @@
-//client_PC
+/********************************************************************************
+File            :       client_PC
+Server IP       :       192.168.0.101
+
+Description:
+        => Select the below option and Enter capture iteration
+                1.Validation
+                2.Registeration 
+        => Receive data from server with the above corresponding condition.
+*********************************************************************************/
+
 #define SRV_IP "192.168.0.101"
 #include <arpa/inet.h>
 #include <netinet/in.h>
