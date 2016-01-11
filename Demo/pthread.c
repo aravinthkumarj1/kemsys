@@ -4,18 +4,19 @@
 
 #define NTHREADS 2
 
-void *myFun(void *x)
+//void *myFun(void *x)
+void myFun()
 {
 //	sleep(2);
 	
-  int tid,i;
+  int tid=2,i;
 	for(i=0;i<6;i++){
-  tid = *((int *) x);
+//  tid = *((int *) x);
   printf("Hi from thread %d!\n", tid);
 	sleep(1);
 }
 //	sleep(2);
-  return NULL;
+  return 0;
 }
 
 int main()
@@ -30,10 +31,10 @@ int main()
   //  {
       thread_args[i] = i;
       printf("spawning thread %d\n", i);
-      rc = pthread_create(&threads[i], NULL, myFun, (void *) &thread_args[i]);
-	
+   //   pthread_create(&threads[i], NULL, myFun, (void *) &thread_args[i]);
+	pthread_create(&threads[i], NULL,myFun, (void *) &thread_args[i]);	
 	for(j=0;j<9;j++){
-	printf("Hai%d\n",j);
+	printf("Hai%d,\n",j);
 	
 	sleep(2);
 	}

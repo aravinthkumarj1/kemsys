@@ -1,4 +1,19 @@
-//server_board
+/*H***********************************************************************************
+* FILENAME : server_board.c
+*
+* DESCRIPTION :	
+*	Receive command from client, Corresponding data will sent to client.
+*
+* PUBLIC FUNCTIONS :
+*	void diep(char *s)
+*	void thread1()
+*	int readfromfile()
+*	int writetofile()
+*
+* AUTHOR : Zumi Solutions (P) Ltd.,
+*
+*H*/
+
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <stdio.h>
@@ -8,127 +23,192 @@
 #include <sys/socket.h>
 #include <unistd.h>
      
-#define BUFLEN 512
-//#define NPACK 10
+#define BUFLEN 1024
 #define PORT 9930
-    
+#define NTHREADS 1024
+
+int sockets[2],capture_event,itrs;
+char itr[BUFLEN],t_buff[BUFLEN],s_buf[BUFLEN],buffer[BUFLEN][BUFLEN];
+void readfromfile();
+void writetofile();
+
+/********************************************************************
+* NAME : void diep(char *s)
+*
+*DESCRIPTION:
+*	For error handling
+*
+********************************************************************/
+
 void diep(char *s)
-	{
-	perror(s);
-	exit(1);
-	}
-    
-int main(void)
-	{
-	struct sockaddr_in si_me, si_other;
-	int s, i, slen=sizeof(si_other);
-	char buf[BUFLEN],itr[BUFLEN];
-	char buffer[200][200];
-  	
-	pipe(sockets);
-	child = fork();
-
-	if ((s=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP))==-1)
-	diep("socket");
-    
-	memset((char *) &si_me, 0, sizeof(si_me));
-	si_me.sin_family = AF_INET;
-	si_me.sin_port = htons(PORT);
-	si_me.sin_addr.s_addr = htonl(INADDR_ANY);
-	
-	if (bind(s, &si_me, sizeof(si_me))==-1)
-	diep("bind");
-    	
-	while(1)	
-	{
-	sleep(2);
-	
-	printf("Waiting for USER...\n");
-	if (recvfrom(s, buf, BUFLEN, 0, &si_other, &slen)==-1)
-	diep("recvfrom()");
-	 int count,data,capture_event,cmds,itrs,index=0;
-        if (recvfrom(s, itr, BUFLEN, 0, &si_other, &slen)==-1)
-        diep("recvfrom()");
-        printf("Option: %s Capture: %s\n",buf,itr);
-
-        cmds = atoi(buf);
-        itrs = atoi(itr);
-switch (cmds) {
-        case 1:
-                printf("Validation\n");
-                capture_event=1;
-                for(count=0;count<itrs;count++)
-                {
-                if(capture_event==1)
-                {
-                memset(&buffer[index][0],data,200);
-                data++;
-                //gevent = 1;
-                }
-                printf("Sending data %d\n\n", buffer[index][0]);
-                sprintf(buf, "%d\n", buffer[index][0]);
-                if (sendto(s, buf, BUFLEN, 0, (struct sockaddr *)&si_other, slen)==-1)
-                diep("sendto()");
-                index=((index+1)%itrs);
-                }
-                capture_event=0;
-                break;
-
-        case 2:
-                printf("Registeration\n");
-                capture_event=1;
-                for(count=0;count<itrs;count++)
-                {
-                if(capture_event==1)
-                {
-                memset(&buffer[index][0],data,200);
-                data++;
-               // gevent = 1;
-                }
-                printf("Sending data %d\n\n", buffer[index][0]);
-		sprintf(buf, "%d\n", buffer[index][0]);
-                if (sendto(s, buf, BUFLEN, 0, (struct sockaddr *)&si_other, slen)==-1)
-                diep("sendto()");
-		index=((index+1)%itrs);
-                }
-                capture_event=0;
-                break;
+{
+     perror(s);
+     exit(1);
 }
-/*	
-	if (sendto(s, buf, BUFLEN, 0, &si_other, slen)==-1)
-        diep("sendto()");
-	
-	int buffer;
-	buffer= atoi(buf);
-	switch (buffer) {
-		
-		case 11:
-			printf("Validation \n5 times it need to capture \n");
-			int j;
-			for(j=0;j<5;j++)
-			{
-			if (recvfrom(s, buf, BUFLEN, 0, &si_other, &slen)==-1)
-        		diep("recvfrom()");
-        		printf("Kumar-Received packet from %s:%d\n Validation-Data: %s\n\n",
-                		inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port), buf); 
-			
-			if (sendto(s, buf, BUFLEN, 0, &si_other, slen)==-1)
-                        diep("sendto()");
-			}
-			break;
-		case 12:
-			printf("Registeration \n1 time it need to capture \n");
 
-			if (recvfrom(s, buf, BUFLEN, 0, &si_other, &slen)==-1)
-		        diep("recvfrom()");
-        		printf("Kumar-Received packet from %s:%d\n Registeration-Data: %s\n\n",
-                		inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port), buf);
-			if (sendto(s, buf, BUFLEN, 0, &si_other, slen)==-1)
-        		diep("sendto()");	
-			break;
-	}
+/********************************************************************
+* NAME : void thread1()
+*
+*DESCRIPTION:	
+*	To check capture_event every 2sec.
+*	Captured data [index] write to IPC socket.
+*
+********************************************************************/
 
- */	}
-	close(s);
-	return 0;
-	}
+void thread1()
+{
+     int data=1,index=0;
+     while(1)
+     {
+          sleep(2);
+          if (capture_event==1)
+          {
+               memset(&buffer[index][0],data,200);
+               sprintf(t_buff, "%d\n", index);
+
+               /* It writes the data to IPC socket */
+               write(sockets[1], t_buff, 200);
+               printf("ZS1:IPC data %s %d %d\n", t_buff,data,index);
+               index=((index+1)%itrs);
+               data++;
+          }
+     }
+}
+
+    
+int main()
+{
+     struct sockaddr_in si_me, si_other;
+     int s, i=1, slen=sizeof(si_other),c_index,count,cmds;
+     char buf[BUFLEN];
+  
+     /* Create a pipe */ 
+     pipe(sockets);	
+
+     /* Create a socket */
+     if ((s=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP))==-1)
+          diep("socket");
+
+     memset((char *) &si_me, 0, sizeof(si_me));
+     si_me.sin_family = AF_INET;
+     si_me.sin_port = htons(PORT);
+     si_me.sin_addr.s_addr = htonl(INADDR_ANY);
+
+     /* Socket s should be bound to the address in si_me */	
+     if (bind(s, (struct sockaddr *)&si_me, sizeof(si_me))==-1)
+          diep("bind");
+
+     /* Create a thread */
+     pthread_t threads[NTHREADS];
+     int thread_args[NTHREADS];
+     thread_args[i] = i;
+     pthread_create(&threads[i], NULL, thread1, (void *) &thread_args[i]);
+
+     while(1)
+     {    	
+          printf("Waiting for USER...\n");
+
+          /* Receive a packet from s, that the data should be put into buf */
+          if (recvfrom(s, buf, BUFLEN, 0, (struct sockaddr *)&si_other, &slen)==-1)
+               diep("recvfrom()");
+
+          /* Receive a packet from s, that the data should be put into itr */
+          if (recvfrom(s, itr, BUFLEN, 0, (struct sockaddr *)&si_other, &slen)==-1)
+               diep("recvfrom()");
+          printf("Option: %s Capture: %s\n",buf,itr);
+   
+          /* Convert a string to an integer */
+          cmds = atoi(buf);
+          itrs = atoi(itr);
+        
+          switch (cmds) 
+          {
+               case 1:
+                    printf("Validation\n");
+                    capture_event=1;
+                    for(count=0;count<itrs;count++)
+                    {
+
+                         /* It reads the data from IPC socket */
+                         read(sockets[0], t_buff, 200);
+                         c_index = atoi(t_buff);
+                         sprintf(s_buf, "%d\n", buffer[c_index][0]);
+                         printf("Sending data %s\n\n",s_buf);
+                      
+                         /* Send BUFLEN bytes from s_buf to s */
+                         if (sendto(s, s_buf, BUFLEN, 0, (struct sockaddr *)&si_other, slen)==-1)
+                              diep("sendto()");
+                    }
+                    readfromfile();
+                    capture_event=0;
+                    break;
+
+               case 2:
+                    printf("Registeration\n");
+                    capture_event=1;
+                    for(count=0;count<itrs;count++)
+                    {
+      
+                         /* It reads the data from IPC socket */
+                         read(sockets[0], t_buff, 200);
+                         c_index = atoi(t_buff);
+                         sprintf(s_buf, "%d\n", buffer[c_index][0]);
+                         printf("Sending data %s\n\n",s_buf);
+
+                         /* Send BUFLEN bytes from s_buf to s */
+                         if (sendto(s, s_buf, BUFLEN, 0, (struct sockaddr *)&si_other, slen)==-1)
+                              diep("sendto()");
+                    }
+                    writetofile();
+                    capture_event=0;
+                    break;
+          }
+     }
+     close(s);
+     return 0;
+}
+
+/********************************************************************
+* NAME : void readfromfile()
+*
+* DESCRIPTION : 
+*	Print the data from file
+*
+********************************************************************/
+
+void readfromfile()
+{
+     FILE *fp;
+     char buffer[10000];
+
+     /* Open file for reading */
+     fp = fopen("ref.txt", "r");
+
+     /* Read and display data */
+     fread(buffer, sizeof(buffer), 1, fp);
+     printf("%s\n", buffer);
+     fclose(fp);
+}
+
+/********************************************************************
+* NAME : void writetofile()
+*
+* DESCRIPTION : 
+*	Write data to the file
+*
+********************************************************************/
+
+void writetofile()
+{
+     FILE *fp;
+     char c[] = "Zumi solutions";
+     char buffer[100];
+
+     /* Open file for writing */
+     fp = fopen("ref.txt", "w");
+
+     /* Write data to the file */
+     fwrite(c, strlen(c) + 1, 1, fp);
+     fclose(fp);
+}
+
