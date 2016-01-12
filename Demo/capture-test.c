@@ -24,7 +24,7 @@
 #include "hrt.h"
 
 #define CLEAR(x) memset (&(x), 0, sizeof (x))
-//char data[3][640*480*2];
+char data[3][640*480*2];
 
 typedef enum {
 	IO_METHOD_READ,
@@ -108,14 +108,12 @@ static int xioctl(int fd, int request, void *arg)
 
 static void process_image(const void *p)
 {
-	printf("%s:ZS1:13\n",__func__);
   update_frame(p);
   SDL_Delay(15);
 }
 
 static int read_frame(void)
 {
-	printf("%s: ZS1:9\n",__func__);
   struct v4l2_buffer buf;
 	unsigned int i;
 
@@ -209,11 +207,10 @@ static int read_frame(void)
 
 static void mainloop(void)
 {
-	printf("%s: ZS1:8\n",__func__);
   unsigned long val,count;
   time_t elapsed = time(NULL);
 
-  val = count = 2;
+  val = count = 100;
 
   while (count-- > 0) {
     for (;;) {
@@ -254,7 +251,6 @@ static void mainloop(void)
 
 static void stop_capturing(void)
 {
-printf("%s: ZS1:10\n",__func__);
         enum v4l2_buf_type type;
 
 	switch (io) {
@@ -275,7 +271,6 @@ printf("%s: ZS1:10\n",__func__);
 
 static void start_capturing(void)
 {
-	printf("%s: ZS1:6\n",__func__);
         unsigned int i;
         enum v4l2_buf_type type;
 
@@ -332,7 +327,6 @@ static void start_capturing(void)
 
 static void uninit_device(void)
 {
-printf("%s: ZS1:12\n",__func__);
         unsigned int i;
 
 	switch (io) {
@@ -354,12 +348,10 @@ printf("%s: ZS1:12\n",__func__);
 
 	free (buffers);
 }
-
 int init_view()
 {
 	SDL_Color colors[256];
 	int i;
-	printf("%s: ZS1:3\n",__func__);
 	if (SDL_Init(SDL_INIT_VIDEO)) {
 		printf("Unable to initialize SDL\n");
 		return -1;
@@ -371,13 +363,13 @@ int init_view()
 		return -1;
 	}
 
-	// * set the driver's window *
+	/* set the driver's window */
 	ioctl(hrtview.fd, IOC_HRT_WIN_SET_X, &hrtview.x);
 	ioctl(hrtview.fd, IOC_HRT_WIN_SET_Y, &hrtview.y);
         printf("setting width %d\n", hrtview.width);
 	ioctl(hrtview.fd, IOC_HRT_WIN_SET_WIDTH, &hrtview.width);
 	ioctl(hrtview.fd, IOC_HRT_WIN_SET_HEIGHT, &hrtview.height);
-	// * Intialize the B&W palette *
+	/* Intialize the B&W palette */
 	for (i = 0; i < 256; i++) {
 		colors[i].r = i;	
 		colors[i].g = i;	
@@ -389,10 +381,8 @@ int init_view()
 	return 0;
 }
 
-
 void close_view()
 {
-printf("%s: ZS1:11\n",__func__);
 	if (hrtview.surface) SDL_FreeSurface(hrtview.surface);
 	hrtview.surface = (SDL_Surface *)NULL;
 	if (SDL_WasInit(SDL_INIT_VIDEO)) 
@@ -428,13 +418,17 @@ int update_frame(const void * p)
   int y, x;
   int i,j;
  
+
   hrtview.frame_count++;
   printf("buf size = %d\n", hrtview.width * hrtview.height * (hrtview.depth / 8));
   fflush(0);
-  if (SDL_MUSTLOCK(hrtview.surface))  
+
+  if (SDL_MUSTLOCK(hrtview.surface))
    	SDL_LockSurface(hrtview.surface);
+
   memcpy(hrtview.surface->pixels, (unsigned char *)p, 
          hrtview.width * hrtview.height * (hrtview.depth / 8));
+
 #if 0
 	if (hrtview.fd >= 0) {
 		/* We expect read() to block waiting for next frame */
@@ -461,7 +455,7 @@ int update_frame(const void * p)
 	SDL_Flip(hrtview.surface);	/* should wait for vsync */
 	//SDL_SaveBMP(hrtview.surface, "cp2.bmp");
 	//exit(0);
-	printf("%s:ZS1:2\n",__func__);
+
 	return 0;
 }
 
@@ -587,7 +581,7 @@ static void init_device(void)
   struct v4l2_crop crop;
   struct v4l2_format fmt;
   unsigned int min;
-	printf("%s, ZS1:2\n",__func__);
+
   memset(&cap,0,sizeof(struct v4l2_capability));
   if (-1 == xioctl (fd, VIDIOC_QUERYCAP, &cap)) {
     if (EINVAL == errno) {
@@ -683,7 +677,6 @@ static void init_device(void)
 
 static void close_device(void)
 {
-	printf("%s,ZS1:5\n",__func__);
   if (-1 == close (fd))
 	  errno_exit ("close");
   fd = -1;
@@ -693,7 +686,7 @@ static void close_device(void)
 static void open_device(void)
 {
   struct stat st; 
-	printf("%s: ZS1:1\n",__func__);
+
   if (-1 == stat (dev_name, &st)) {
     fprintf (stderr, "Cannot identify '%s': %d, %s\n",
              dev_name, errno, strerror (errno));
@@ -716,7 +709,6 @@ static void open_device(void)
 
 static void usage(FILE *fp, int argc, char ** argv)
 {
-printf("%s: ZS1:17",__func__);
   fprintf (fp,
     "Usage: %s [options]\n\n"
     "Options:\n"

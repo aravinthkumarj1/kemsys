@@ -22,6 +22,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <unistd.h>
+//#include <pthread.h>
      
 #define BUFLEN 1024
 #define PORT 9930
