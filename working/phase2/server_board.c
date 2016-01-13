@@ -42,16 +42,17 @@
 
 #define CLEAR(x) memset (&(x), 0, sizeof (x))
 //char data[3][640*480*2];
-int data = 0;
+int datas = 0;
 
 struct buffer {
-        void *                  start;
-        size_t                  length;
+     void *     start;
+     size_t     length;
+     size_t     data;
 };
 
 static char *           dev_name        = NULL;
 static int              fd              = -1;
-struct buffer *         buffers         = NULL;
+struct buffer **buffers         = NULL;
 static unsigned int     n_buffers       = 0;
 static int video_width=512;
 static int video_height=480;
@@ -169,8 +170,8 @@ int main()
                          /* It reads the data from IPC socket */
                          read(sockets[0], t_buff, 200);
                          c_index = atoi(t_buff);
-                         process_image (buffers[c_index].start);
-                         sprintf(s_buf, "%d\n", buffers[c_index]);
+                         process_image (buffers[c_index][0].start);
+                         sprintf(s_buf, "%d\n", buffers[c_index][0]);
                          printf("Sending data %s\n\n",s_buf);
                          /* Send BUFLEN bytes from s_buf to s */
                          if (sendto(s, s_buf, BUFLEN, 0, (struct sockaddr *)&si_other, slen)==-1)
@@ -189,8 +190,8 @@ int main()
                          /* It reads the data from IPC socket */
                          read(sockets[0], t_buff, 200);
                          c_index = atoi(t_buff);
-                         process_image (buffers[c_index].start);
-                         sprintf(s_buf, "%d\n", buffers[c_index]);
+                         process_image (buffers[c_index][0].start);
+                         sprintf(s_buf, "%d\n", buffers[c_index][0]);
                          printf("Sending data %s\n\n",s_buf);
 
                          /* Send BUFLEN bytes from s_buf to s */
@@ -418,15 +419,15 @@ static void init_mmap(void)
           if (-1 == ioctl (fd, VIDIOC_QUERYBUF, &buf))
                errno_exit ("VIDIOC_QUERYBUF");
 
-          buffers[n_buffers].length = buf.length;
-          buffers[n_buffers].start =
+          buffers[n_buffers][0].length = buf.length;
+          buffers[n_buffers][0].start =
                mmap (NULL /* start anywhere */,
                     buf.length,
                     PROT_READ | PROT_WRITE /* required */,
                     MAP_SHARED /* recommended */,
                     fd, buf.m.offset);
 
-          if (MAP_FAILED == buffers[n_buffers].start)
+          if (MAP_FAILED == buffers[n_buffers][0].start)
                errno_exit ("mmap");
      }
 }
@@ -517,12 +518,12 @@ static int read_frame(void)
      printf("index = %d\n",buf.index);
      if (capture_event==1)
      {
-          memset(&buffers[buf.index],data,BUFLEN);
+          memset(&buffers[buf.index][0],datas,BUFLEN);
           sprintf(t_buff, "%d\n", buf.index);
 
           /* It writes the data to IPC socket */
           write(sockets[1], t_buff, BUFLEN);
-          printf("ZS1:IPC data %s %d %d\n", t_buff,data,buf.index);
+          printf("ZS1:IPC data %s %d %d\n", t_buff,datas,buf.index);
      }
 
      //process_image (buffers[buf.index].start);
