@@ -1,0 +1,22 @@
+insmod camera_sensor_clock.ko 
+insmod ipu_bg_overlay_sdc.ko 
+insmod ipu_fg_overlay_sdc.ko 
+insmod ipu_csi_enc.ko 
+insmod ipu_prp_enc.ko 
+insmod ipu_still.ko 
+insmod mxc_v4l2_capture.ko 
+insmod ov5640_camera_mipi.ko 
+
+
+
+
+=> i2c dev 1
+Setting bus to 1
+=> i2c probe
+Valid chip addresses: 08 48
+
+./mxc_v4l2_capture.out -d /dev/video1 -iw 680 -ih 64
+0 -ow 640 -oh 480 -r 0 -fr 15 test.yuv
+
+gst-launch mfw_v4lsrc device=/dev/video1 ! vpuenc ! fakesink &
+

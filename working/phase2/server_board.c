@@ -41,18 +41,17 @@
 #define NTHREADS 1024
 
 #define CLEAR(x) memset (&(x), 0, sizeof (x))
-//char data[3][640*480*2];
 int datas = 0;
-
+#if 0
 struct buffer {
      void *     start;
      size_t     length;
-     size_t     data;
 };
+#endif
 
 static char *           dev_name        = NULL;
 static int              fd              = -1;
-struct buffer **buffers         = NULL;
+//struct buffer **buffers         = NULL;
 static unsigned int     n_buffers       = 0;
 static int video_width=512;
 static int video_height=480;
@@ -60,7 +59,7 @@ static int video_depth=8;
 
 
 int sockets[2],capture_event,itrs;
-char itr[BUFLEN],t_buff[BUFLEN],s_buf[BUFLEN]/*,buffers[BUFLEN][BUFLEN]*/;
+char itr[BUFLEN],t_buff[BUFLEN],s_buf[BUFLEN],buffers[BUFLEN][BUFLEN];
 void readfromfile();
 void writetofile();
 static void init_mmap(void);
@@ -84,6 +83,7 @@ void diep(char *s)
      exit(1);
 }
 
+#if 1
 /********************************************************************
 * NAME : void thread1()
 *
@@ -92,7 +92,7 @@ void diep(char *s)
 *	Captured data [index] write to IPC socket.
 *
 ********************************************************************/
-/*
+
 void thread1()
 {
      int data=1,index=0;
@@ -101,10 +101,9 @@ void thread1()
           sleep(2);
           if (capture_event==1)
           {
-               memset(&buffer[index][0],data,200);
+               memset(&buffers[index][0],data,200);
                sprintf(t_buff, "%d\n", index);
-
-//               * It writes the data to IPC socket *
+               // * It writes the data to IPC socket *
                write(sockets[1], t_buff, 200);
                printf("ZS1:IPC data %s %d %d\n", t_buff,data,index);
                index=((index+1)%itrs);
@@ -112,7 +111,7 @@ void thread1()
           }
      }
 }
-*/
+#endif
     
 int main()
 {
@@ -136,11 +135,13 @@ int main()
      if (bind(s, (struct sockaddr *)&si_me, sizeof(si_me))==-1)
           diep("bind");
 
+     //deep init_device();
+
      /* Create a thread */
      pthread_t threads[NTHREADS];
      int thread_args[NTHREADS];
      thread_args[i] = i;
-     pthread_create(&threads[i], NULL, mainloop, (void *) &thread_args[i]);
+     pthread_create(&threads[i], NULL, thread1/*mainloop*/, (void *) &thread_args[i]);
 
      while(1)
      {    	
@@ -170,7 +171,7 @@ int main()
                          /* It reads the data from IPC socket */
                          read(sockets[0], t_buff, 200);
                          c_index = atoi(t_buff);
-                         process_image (buffers[c_index][0].start);
+                         //deep process_image (buffers[c_index][0].start);
                          sprintf(s_buf, "%d\n", buffers[c_index][0]);
                          printf("Sending data %s\n\n",s_buf);
                          /* Send BUFLEN bytes from s_buf to s */
@@ -190,7 +191,7 @@ int main()
                          /* It reads the data from IPC socket */
                          read(sockets[0], t_buff, 200);
                          c_index = atoi(t_buff);
-                         process_image (buffers[c_index][0].start);
+                         //deep process_image (buffers[c_index][0].start);
                          sprintf(s_buf, "%d\n", buffers[c_index][0]);
                          printf("Sending data %s\n\n",s_buf);
 
@@ -249,6 +250,42 @@ void writetofile()
      /* Write data to the file */
      fwrite(c, strlen(c) + 1, 1, fp);
      fclose(fp);
+}
+#if 0
+
+/********************************************************************
+* NAME : void open_device(void)
+*
+* DESCRIPTION : 
+*       
+*
+********************************************************************/
+
+static void open_device(void)
+{
+     struct stat st;
+     printf("%s: ZS1:1\n",__func__);
+     if (-1 == stat (dev_name, &st)) 
+     {
+          fprintf (stderr, "Cannot identify '%s': %d, %s\n",
+          dev_name, errno, strerror (errno));
+          exit (EXIT_FAILURE);
+     }
+
+     if (!S_ISCHR (st.st_mode)) 
+     {
+     fprintf (stderr, "%s is no device\n", dev_name);
+     exit (EXIT_FAILURE);
+     }
+
+     fd = open (dev_name, O_RDWR /* required */ | O_NONBLOCK, 0);
+
+     if (-1 == fd) 
+     {
+          fprintf (stderr, "Cannot open '%s': %d, %s\n",
+          dev_name, errno, strerror (errno));
+          exit (EXIT_FAILURE);
+     }
 }
 
 /********************************************************************
@@ -518,18 +555,14 @@ static int read_frame(void)
      printf("index = %d\n",buf.index);
      if (capture_event==1)
      {
-          memset(&buffers[buf.index][0],datas,BUFLEN);
           sprintf(t_buff, "%d\n", buf.index);
 
           /* It writes the data to IPC socket */
           write(sockets[1], t_buff, BUFLEN);
-          printf("ZS1:IPC data %s %d %d\n", t_buff,datas,buf.index);
-     }
-
-     //process_image (buffers[buf.index].start);
-
-     if (-1 == ioctl (fd, VIDIOC_QBUF, &buf))
-          errno_exit ("VIDIOC_QBUF");
+      }
+      if (-1 == ioctl (fd, VIDIOC_QBUF, &buf))
+           errno_exit ("VIDIOC_QBUF");
+     
 
      return 1;
 }
@@ -561,3 +594,5 @@ static void errno_exit(const char *s)
 void process_image()
 {
 }
+#endif
+
