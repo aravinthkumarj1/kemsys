@@ -1,0 +1,216 @@
+/////////////////////////////////s_fmt--Error/////////////////////////////
+
+root@freescale /unit_tests$ ./mxc_v4l2_capture.out -d /dev/video1 -iw 1920 -ih 1
+080 -ow 1920 -oh 1080 -r 0 -fr 30 test2.yuv
+in_width = 1920, in_height = 1080mxc_v4l_open ZS5:2
+
+out_width = 1920, out_height = csi_enc_select ZS5:7 bfeb0000
+1080
+top = 0, left = 0
+mxc_v4l_open ZS5:3 0 
+ioctl_g_fmt_cap : ZS6:2 
+ZUMI : On Open: Input to ipu size is 640 x 480 format = 30555049
+ipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+ipu_csi_init_interface ZS6:3 30555049
+IPU_PIX_FMT_YUYV:56595559 IPU_PIX_FMT_UYVY:59565955 IPU_PIX_FMT_RGB24:33424752 IPU_PIX_FMT_BGR24:33524742 IPU_PIX_FMT_GENERIC:30555049 IPU_PIX2
+ZS6:7 IPU_PIX_FMT_GENERIC: 
+Zumi CSI_SENS_CONF = 0x000A1B00
+Zumi CSI_ACT_FRM_SIZE = 0x01DF027F
+mipi_csi2_set_lanes ZS7:2 lanes 1 CSI2_N_LANES:1 info->lanes: 2
+ZS1:RAW
+mipi_csi2_set_datatype ZS2:2b
+sensor chip is ov2281_mipi_camera
+sensor supported frame size:
+ 1920x1080
+ 0x0
+sensor frame format: IPU0
+sensor frame format: IPU0
+mipi_csi2_set_lanes ZS7:2 lanes 1 CSI2_N_LANES:1 info->lanes: 2
+ZS1:RAW
+mipi_csi2_set_datatype ZS2:2b
+ZS2:width:1920,hight:1080ioctl_g_fmt_cap : ZS6:2 
+ipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+ipu_csi_init_interface ZS6:3 30555049
+IPU_PIX_FMT_YUYV:56595559 IPU_PIX_FMT_UYVY:59565955 IPU_PIX_FMT_RGB24:33424752 IPU_PIX_FMT_BGR24:33524742 IPU_PIX_FMT_GENERIC:30555049 IPU_PIX2
+ZS6:7 IPU_PIX_FMT_GENERIC: 
+Zumi CSI_SENS_CONF = 0x00009B00
+Zumi CSI_ACT_FRM_SIZE = 0x0437077F
+ipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+valid_mode ZS12:0 
+mxc_v4l2_s_fmt ZS12:0 0x00000001 
+valid_mode ZS12:0 
+mxc_v4l2_s_fmt ZS12:3 f->fmt.pix.pixelformat 0x32315559 
+mxc_v4l2_s_fmt ZS12:03 V4L2_PIX_FMT_YUV420:32315559 
+mxc_v4l2_s_fmt ZS12:03 V4L2_PIX_FMT_YVU420:32315659 
+         Width = 1920    Height = 1080   Image size = 3110400
+         pixelformat = 842093913
+mxc_streamon ZS5:8
+csi_enc_enabling_tasks ZS5:10
+csi_enc_setup : ZS5:11
+ZS5:12 -- CONFIG_MXC_MIPI_CSI2
+csi_enc_setup : ZS5:13 -- sensor_protocol : 0
+ZS5:14 -- v2f.fmt.pix.pixelformat-- 32315559 
+csi_enc_setup ZS5:14 -1075226752 
+ipu_init_channel ZS5:17
+ipu_init_channel ZS5:18 --channel : fffffc0 
+ipu_init_channel ZS11:0 --IPU_CONF : 0x000006E0 
+ipu_init_channel ZS5:19
+ipu_init_channel ZS5:21
+Zumi CSI_SENS_CONF*********** = 0x04009B00 
+Zumi CSI_ACT_FRM_SIZE = 0x0437077F
+Zumi CSI_SENS_FRM_SIZE= 0x0437077F
+csi_enc_enabling_tasks ZS5:10 0 
+IPU_CONF =      0x200007E2
+IDMAC_CONF =    0x0000002F
+IDMAC_CHA_EN1 =         0x10800001
+IDMAC_CHA_EN2 =         0x00000000
+IDMAC_CHA_PRI1 =        0x18800001
+IDMAC_CHA_PRI2 =        0x00000000
+IDMAC_BAND_EN1 =        0x00000000
+IDMAC_BAND_EN2 =        0x00000000
+IPU_CHA_DB_MODE_SEL0 =  0x00000001
+IPU_CHA_DB_MODE_SEL1 =  0x00000000
+IPU_CHA_TRB_MODE_SEL0 =         0x10800000
+IPU_CHA_TRB_MODE_SEL1 =         0x00000000
+DMFC_WR_CHAN =  0x00000090
+DMFC_WR_CHAN_DEF =      0x202020F6
+DMFC_DP_CHAN =  0x0000968A
+DMFC_DP_CHAN_DEF =      0x2020F6F6
+DMFC_IC_CTRL =  0x00000002
+IPU_FS_PROC_FLOW1 =     0x00000000
+IPU_FS_PROC_FLOW2 =     0x00000000
+IPU_FS_PROC_FLOW3 =     0x00000000
+IPU_FS_DISP_FLOW1 =     0x00000000
+IPU_VDIC_VDI_FSIZE =    0x00000000
+IPU_VDIC_VDI_C =        0x00000000
+IPU_IC_CONF =   0x00000000
+mxc_streamon ZS5:9 0
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS7:7 cam->enc_queue:0  
+ERROR: v4l2 capture: mxc_v4l_dqueue Timeout enc_counter 0
+VIDIOC_DQBUF failed.
+ERROR: v4l2 capture: VIDIOC_QBUF: buffer already queued
+VIDIOC_QBUF failed
+root@freescale /unit_tests$
+
+
+/////////////////////////////////Change to GENERIC////////////////////////////////////
+
+
+root@freescale /unit_tests$ ./mxc_v4l2_capture.out -d /dev/video1 -iw 1920 -ih 1
+080 -ow 1920 -oh 1080 -r 0 -fr 30 test2.yuv
+in_width = 1920, in_height = 1080mxc_v4l_open ZS5:2
+
+out_width = 1920, out_height = csi_enc_select ZS5:7 ba213000
+1080
+top = 0, left = 0
+mxc_v4l_open ZS5:3 0 
+ioctl_g_fmt_cap : ZS6:2 
+ZUMI : On Open: Input to ipu size is 640 x 480 format = 30555049
+ipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+ipu_csi_init_interface ZS6:3 30555049
+IPU_PIX_FMT_YUYV:56595559 IPU_PIX_FMT_UYVY:59565955 IPU_PIX_FMT_RGB24:33424752 IPU_PIX_FMT_BGR24:33524742 IPU_PIX_FMT_GENERIC:30555049
+ IPU_PIX_FMT_RGB565:50424752 IPU_PIX_FMT_RGB555:4f424752
+ZS6:7 IPU_PIX_FMT_GENERIC: 
+Zumi CSI_SENS_CONF = 0x000A1B00
+Zumi CSI_ACT_FRM_SIZE = 0x01DF027F
+mipi_csi2_set_lanes ZS7:2 lanes 1 CSI2_N_LANES:1 info->lanes: 2
+ZS1:RAW
+mipi_csi2_set_datatype ZS2:2b
+sensor chip is ov2281_mipi_camera
+sensor supported frame size:
+ 1920x1080
+ 0x0
+sensor frame format: IPU0
+sensor frame format: IPU0
+mipi_csi2_set_lanes ZS7:2 lanes 1 CSI2_N_LANES:1 info->lanes: 2
+ZS1:RAW
+mipi_csi2_set_datatype ZS2:2b
+ZS2:width:1920,hight:1080ioctl_g_fmt_cap : ZS6:2 
+mxc_v4l2_s_param ZS12:10 cam_fmt.fmt.pix.pixelformat:30555049 
+ipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+ipu_csi_init_interface ZS6:3 30555049
+IPU_PIX_FMT_YUYV:56595559 IPU_PIX_FMT_UYVY:59565955 IPU_PIX_FMT_RGB24:33424752 IPU_PIX_FMT_BGR24:33524742 IPU_PIX_FMT_GENERIC:30555049
+ IPU_PIX_FMT_RGB565:50424752 IPU_PIX_FMT_RGB555:4f424752
+ZS6:7 IPU_PIX_FMT_GENERIC: 
+Zumi CSI_SENS_CONF = 0x00009B00
+Zumi CSI_ACT_FRM_SIZE = 0x0437077F
+ipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+mxc_v4l2_s_fmt:ZS12:0 f->fmt.pix.pixelformat:0x30555049 width:0x00000780 height:0x00000438
+valid_mode ZS12:0 
+mxc_v4l2_s_fmt ZS12:0 0x00000000 
+valid_mode ZS12:0 
+valid_mode ZS12:0 
+mxc_v4l2_s_fmt ZS12:01 0x00000000 
+ERROR: v4l2 capture: mxc_v4l2_s_fmt: format not supported
+set format failed
+get format failed
+root@freescale /unit_tests$
+
+//////////////////////////////////////////////Valid-mode changed////////////////////////////////////////////
+
+root@freescale /unit_tests$ ./mxc_v4l2_capture.out -d /dev/video1 -iw 1920 -ih 1
+080 -ow 1920 -oh 1080 -r 0 -fr 30 test2.yuv
+in_width = 1920, in_height = 1080mxc_v4l_open ZS5:2
+
+out_width = 1920, out_height = csi_enc_select ZS5:7 bfd9c000
+1080
+top = 0, left = 0
+mxc_v4l_open ZS5:3 0 
+ioctl_g_fmt_cap : ZS6:2 
+ZUMI : On Open: Input to ipu size is 640 x 480 format = 30555049
+ipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+ipu_csi_init_interface ZS6:3 30555049
+IPU_PIX_FMT_YUYV:56595559 IPU_PIX_FMT_UYVY:59565955 IPU_PIX_FMT_RGB24:33424752 IPU_PIX_FMT_BGR24:33524742 IPU_PIX_FMT_GENERIC:30555049
+ IPU_PIX_FMT_RGB565:50424752 IPU_PIX_FMT_RGB555:4f424752
+ZS6:7 IPU_PIX_FMT_GENERIC: 
+Zumi CSI_SENS_CONF = 0x000A1B00
+Zumi CSI_ACT_FRM_SIZE = 0x01DF027F
+mipi_csi2_set_lanes ZS7:2 lanes 1 CSI2_N_LANES:1 info->lanes: 2
+ZS1:RAW
+mipi_csi2_set_datatype ZS2:2b
+sensor chip is ov2281_mipi_camera
+sensor supported frame size:
+ 1920x1080
+ 0x0
+sensor frame format: IPU0
+sensor frame format: IPU0
+mipi_csi2_set_lanes ZS7:2 lanes 1 CSI2_N_LANES:1 info->lanes: 2
+ZS1:RAW
+mipi_csi2_set_datatype ZS2:2b
+ZS2:width:1920,hight:1080ioctl_g_fmt_cap : ZS6:2 
+mxc_v4l2_s_param ZS12:10 cam_fmt.fmt.pix.pixelformat:30555049 
+ipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+ipu_csi_init_interface ZS6:3 30555049
+IPU_PIX_FMT_YUYV:56595559 IPU_PIX_FMT_UYVY:59565955 IPU_PIX_FMT_RGB24:33424752 IPU_PIX_FMT_BGR24:33524742 IPU_PIX_FMT_GENERIC:30555049
+ IPU_PIX_FMT_RGB565:50424752 IPU_PIX_FMT_RGB555:4f424752
+ZS6:7 IPU_PIX_FMT_GENERIC: 
+Zumi CSI_SENS_CONF = 0x00009B00
+Zumi CSI_ACT_FRM_SIZE = 0x0437077F
+ipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+mxc_v4l2_s_fmt:ZS12:0 f->fmt.pix.pixelformat:0x30555049 width:0x00000780 height:0x00000438
+valid_mode ZS12:0 
+mxc_v4l2_s_fmt ZS12:0 0x00000001 
+valid_mode ZS12:0 
+mxc_v4l2_s_fmt ZS12:3 f->fmt.pix.pixelformat 0x30555049 
+mxc_v4l2_s_fmt ZS12:02  
+------------[ cut here ]------------
+WARNING: at mm/page_alloc.c:2106 __alloc_pages_nodemask+0x154/0x6cc()
+Modules linked in: ov2281_camera_mipi mxc_v4l2_capture ipu_still ipu_prp_enc ipu_csi_enc ipu_fg_overlay_sdc ipu_bg_overlay_sdc camera_sensor_ck
+[<800487f4>] (unwind_backtrace+0x0/0xf8) from [<800751b4>] (warn_slowpath_common+0x4c/0x64)
+[<800751b4>] (warn_slowpath_common+0x4c/0x64) from [<800751e8>] (warn_slowpath_null+0x1c/0x24)
+[<800751e8>] (warn_slowpath_null+0x1c/0x24) from [<800c1ed8>] (__alloc_pages_nodemask+0x154/0x6cc)
+[<800c1ed8>] (__alloc_pages_nodemask+0x154/0x6cc) from [<8004b760>] (__dma_alloc+0xa4/0x300)
+[<8004b760>] (__dma_alloc+0xa4/0x300) from [<8004bf98>] (dma_alloc_coherent+0x54/0x60)
+[<8004bf98>] (dma_alloc_coherent+0x54/0x60) from [<7f01c1d8>] (mxc_v4l_do_ioctl+0x54c/0x2300 [mxc_v4l2_capture])
+[<7f01c1d8>] (mxc_v4l_do_ioctl+0x54c/0x2300 [mxc_v4l2_capture]) from [<8036035c>] (video_usercopy+0x98/0x4d4)
+[<8036035c>] (video_usercopy+0x98/0x4d4) from [<8035f8f8>] (v4l2_ioctl+0x11c/0x138)
+[<8035f8f8>] (v4l2_ioctl+0x11c/0x138) from [<80100890>] (do_vfs_ioctl+0x80/0x54c)
+[<80100890>] (do_vfs_ioctl+0x80/0x54c) from [<80100d94>] (sys_ioctl+0x38/0x5c)
+[<80100d94>] (sys_ioctl+0x38/0x5c) from [<80041f80>] (ret_fast_syscall+0x0/0x30)
+---[ end trace 14f6fd5d8dccc811 ]---
+ERROR: v4l2 capture: mxc_allocate_frame_buf failed.
+v4l_capture_setup: VIDIOC_REQBUFS failed
+get format failed
+root@freescale /unit_tests$
+///////////////////////////////////////////////////////////////////////////////////

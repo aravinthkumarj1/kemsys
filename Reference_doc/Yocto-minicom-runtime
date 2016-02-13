@@ -1,0 +1,73 @@
+rmmod mxc_v4l2_capture
+rmmod ipu_still
+rmmod ipu_prp_enc
+rmmod ipu_csi_enc
+
+insmod ipu_csi_enc.ko 
+insmod ipu_prp_enc.ko 
+insmod ipu_still.ko 
+insmod mxc_v4l2_capture.ko 
+insmod ov2281_camera_mipi.ko
+
+gst-launch mfw_v4lsrc device=/dev/video1  ! mfw_v4lsink
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+root@imx6dlsabresd:/Zumi# gst-launch mfw_v4lsrc device=/dev/video1  ! mfw_v4lsin
+k
+ERROR: v4l2 capture: slave not found!
+ZS1:CSI MEM entered 
+ZS1:2IPU_CSI_DATA_WIDTH_10********Zumi : ov2281_set_virtual_channel : channel_id = 0 channel = 1 
+********Zumi : ov2281_set_virtual_channel : 0x4804 value = 2c 
+*******Zumi : ov2281_set_virtual_channel : After 0x4813 Val = 5 channel = 5 
+*******Zumi : ov2281_set_virtual_channel : After 0x4850 Val = 10 channel = 16 
+MAX resolution 1024x768
+
+(gst-plugin-scanner:801): GLib-GObject-WARNING **: cannot register existing type 'GstVorbisDec'
+
+(gst-plugin-scanner:801): GLib-CRITICAL **: g_once_init_leave: assertion 'result != 0' failed
+
+(gst-plugin-scanner:801): GStreamer-CRITICAL **: gst_element_register: assertion 'g_type_is_a (type, GST_TYPE_ELEMENT)' failed
+MFW_GST_V4LSRC_PLUGIN 3.0.11 build on Feb 10 2016 21:00:07.
+ERROR: v4l2 capture: slave not found!
+ZS1:CSI MEM entered 
+ZS1:2IPU_CSI_DATA_WIDTH_10********Zumi : ov2281_set_virtual_channel : channel_id = 0 channel = 1 
+********Zumi : ov2281_set_virtual_channel : 0x4804 value = 2c 
+*******Zumi : ov2281_set_virtual_channel : After 0x4813 Val = 5 channel = 5 
+*******Zumi : ov2281_set_virtual_channel : After 0x4850 Val = 10 channel = 16 
+MFW_GST_V4LSINK_PLUGIN 3.0.11 build on Feb 10 2016 21:00:02.
+Setting pipeline to PAUSED ...ZS1:CSI MEM entered 
+
+ZS1:2IPU_CSI_DATA_WIDTH_10********Zumi : ov2281_set_virtual_channel : channel_id = 0 channel = 1 
+********Zumi : ov2281_set_virtual_channel : 0x4804 value = 2c 
+*******Zumi : ov2281_set_virtual_channel : After 0x4813 Val = 5 channel = 5 
+*******Zumi : ov2281_set_virtual_channel : After 0x4850 Val = 10 channel = 16 
+********Zumi : ov2281_set_virtual_channel : channel_id = 0 channel = 1 
+********Zumi : ov2281_set_virtual_channel : 0x4804 value = 2c 
+*******Zumi : ov2281_set_virtual_channel : After 0x4813 Val = 5 channel = 5 
+*******Zumi : ov2281_set_virtual_channel : After 0x4850 Val = 10 channel = 16 
+ZS1:V4L2_IF_TYPE_BT656_MODE_NOBT_10BIT
+f->fmt.pix.pixelformat = IPU_PIX_FMT_GENERIC_16 ;
+IPU_PIX_FMT_GENERIC_16
+Zumi CSI_SENS_CONF = 0x04009B00 
+Zumi CSI_ACT_FRM_SIZE = 0x0437077F
+Zumi CSI_SENS_FRM_SIZE= 0x0437077F
+_ipu_ch_param_init -- IPU_PIX_FMT_GENERIC_16: width:1920
+Pipeline is live and does not need PREROLL ...
+Setting pipeline to PLAYING ...
+New clock: GstSystemClock
+ERROR: v4l2 capture: mxc_v4l_dqueue timeout enc_counter 0
+ERROR: from element /GstPipeline:pipeline0/MFWGstV4LSrc:mfwgstv4lsrc0: Internal data flow error.
+Additional debug info:
+/home/manoj/aravinth/Kemsys/kernel/Zaid/Linux3_14_28/Yocto/fsl-release-bsp/build/tmp/work/cortexa9hf-vfp-neon-poky-linux-gnueabi/gstreamer/0.1:
+streaming task paused, reason error (-5)
+Execution ended after 10000144335 ns.
+Setting pipeline to PAUSED ...
+Setting pipeline to READY ...
+Setting pipeline to NULL ...
+Total rendered:0
+Freeing pipeline ...
+[--->FINALIZE v4l_sink
+root@imx6dlsabresd:/Zumi#

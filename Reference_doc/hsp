@@ -1,0 +1,4 @@
+crm_regs.h:#define MXC_CCM_CSCDR3_IPU2_HSP_PODF_MASK		(0x7 << 16)
+crm_regs.h:#define MXC_CCM_CSCDR3_IPU2_HSP_PODF_OFFSET		(16)
+crm_regs.h:#define MXC_CCM_CSCDR3_IPU2_HSP_CLK_SEL_MASK		(0x3 << 14)
+crm_regs.h:#define MXC_CCM_CSCDR3_IPU2_HSP_CLK_SEL_OFFSET		(14)

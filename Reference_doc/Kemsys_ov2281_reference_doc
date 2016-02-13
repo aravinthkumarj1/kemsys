@@ -1,0 +1,41 @@
+cd ~/aravinth/Kemsys/kernel/Zaid/linux-imx6/
+
+For Compilation:-
+---------------
+
+export ARCH=arm
+export CROSS_COMPILE=/opt/freescale/usr/local/gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12/fsl-linaro-toolchain/bin/arm-none-linux-gnueabi-
+make;make uImage
+
+Flash into Sd card:-
+------------------
+
+cd arch/arm/boot/
+sudo dd if=uImage of=/dev/sdb bs=512 seek=2048
+
+Copy modules:-
+--------------
+
+cd drivers/media/video/mxc/capture/
+sudo cp camera_sensor_clock.ko ipu_bg_overlay_sdc.ko ipu_fg_overlay_sdc.ko ipu_csi_enc.ko ipu_prp_enc.ko ipu_still.ko mxc_v4l2_capture.ko ov2281_camera_mipi.ko /media/f6718e6f-1d92-4dcb-859f-3515f594e348/Zumi/debug_ov22/.
+
+
+After booting:-
+---------------
+
+cd /Zumi/debug_ov22/
+
+insmod camera_sensor_clock.ko 
+insmod ipu_bg_overlay_sdc.ko 
+insmod ipu_fg_overlay_sdc.ko 
+insmod ipu_csi_enc.ko 
+insmod ipu_prp_enc.ko 
+insmod ipu_still.ko 
+insmod mxc_v4l2_capture.ko 
+insmod ov2281_camera_mipi.ko
+
+
+cd /unit_tests/
+
+./mxc_v4l2_capture.out -d /dev/video1 -iw 1920 -ih 1080 -ow 1920 -oh 1080 -r 0 -fr 30 test2.yuv
+

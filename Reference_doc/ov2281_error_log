@@ -1,0 +1,194 @@
+//////////////////////////////////////////////////////////////////////////////////////
+
+root@freescale /unit_tests$ ./mxc_v4l2_capture.out -d /dev/video1 -iw 680 -ih 64
+0 -ow 640 -oh 480 -r 0 -fr 15 test3.yuv
+in_width = 680, in_height = 640
+out_width = 640, out_height = 480
+top = 0, left = 0
+ZS1:RAW
+ov2281_write_reg:write reg error:reg=300e,val=45
+sensor chip is ov2281_mipi_camera
+sensor supported frame size:
+ 1920x1080
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+sensor frame format: Y10B
+sensor frZS1:RAW
+ame format: Y10B
+sensor frame foov2281_read_reg:write reg error:reg=3503
+rmat: Y10B
+sensor frame format: ov2281_write_reg:write reg error:reg=3503,val=3
+Y10B
+sensor frame format: Y10B
+ov2281_write_reg:write reg error:reg=4202,val=f
+sensor frame format: Y10B
+sensorov2281_write_reg:write reg error:reg=103,val=1
+ frame format: Y10B
+sensor framemxc_v4l2_s_param: vidioc_int_s_parm returned an error -1
+ format: Y10B
+sensor frame format: Y10B
+VIDIOC_S_PARM failed
+get format failed
+
+////////////////////////////////////////////////////////////////////////////
+
+root@freescale /unit_tests$ ./mxc_v4l2_capture.out -d /dev/video1 -iw 1920 -ih 1
+080 -ow 1920 -oh 1080 -r 0 -fr 15 test2.yuv
+in_width = 1920, in_height = 1080
+out_width = 1920, out_height = 1080
+top = 0, left = 0
+ZS1:RAW
+ov2281_write_reg:write reg error:reg=300e,val=45
+sensor chip is ov2281_mipi_camera
+sensor supported frame size:
+ 1920x1080
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame formatZS1:RAW
+: Y10B
+sensor frame format: Y10Bmxc_v4l2_s_param: vidioc_int_s_parm returned an error -22
+
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+VIDIOC_S_PARM failed
+get format failed
+root@freescale /unit_tests$ 
+//////////////////////////////////////////////////////////////////////////////
+
+root@freescale /unit_tests$ ./mxc_v4l2_capture.out -d /dev/video1 -iw 1920 -ih 1
+080 -ow 1920 -oh 1080 -r 0 -fr 15 test2.yuv
+in_width = 1920, in_height = 1080
+out_width = 1920, out_height = 1080
+top = 0, left = 0
+ZS1:RAW
+mipi_csi2_set_datatype ZS2:43
+ov2281_write_reg:write reg error:reg=300e,val=45
+sensor chip is ov2281_mipi_camera
+sensor supported frame size:
+ 1920x1080
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+sensZS1:RAW
+or frame format: Y10B
+sensor framipi_csi2_set_datatype ZS2:43
+me format: Y10B
+sensor frame formxc_v4l2_s_param: vidioc_int_s_parm returned an error -22
+mat: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+VIDIOC_S_PARM failed
+get format failed
+root@freescale /unit_tests$
+///////////////////////////////////////////////////////////////////////
+
+root@freescale /Zumi$ insmod ov2281_camera_mipi.ko
+ZUMI****************OV2281 Camera Sensor *************
+ZS1: 0
+ZS2: 56
+ZS3: 70
+root@freescale /Zumi$ 
+root@freescale /Zumi$ 
+root@freescale /Zumi$ cd ../unit_tests/
+root@freescale /unit_tests$ ./mxc_v4l2_capture.out -d /dev/video1 -iw 1920 -ih 1
+080 -ow 1920 -oh 1080 -r 0 -fr 15 test2.yuv
+in_width = 1920, in_height = 1080
+out_width = 1920, out_height = 1080
+top = 0, left = 0
+ZS1:RAW
+mipi_csi2_set_datatype ZS2:43
+Division by zero in kernel.
+[<800487f4>] (unwind_backtrace+0x0/0xf8) from [<8022e554>] (Ldiv0+0x8/0x10)
+[<8022e554>] (Ldiv0+0x8/0x10) from [<7f024a30>] (OV2281_get_sysclk+0xa4/0xe4 [ov2281_camera_mipi])
+[<7f024a30>] (OV2281_get_sysclk+0xa4/0xe4 [ov2281_camera_mipi]) from [<7f024c64>] (OV2281_set_bandingfilter+0x8/0xcc [ov2281_camera_mipi])
+[<7f024c64>] (OV2281_set_bandingfilter+0x8/0xcc [ov2281_camera_mipi]) from [<7f02513c>] (ov2281_init_mode+0x304/0x588 [ov2281_camera_mipi])
+[<7f02513c>] (ov2281_init_mode+0x304/0x588 [ov2281_camera_mipi]) from [<8036bc04>] (v4l2_int_ioctl_0+0x54/0x68)
+[<8036bc04>] (v4l2_int_ioctl_0+0x54/0x68) from [<7f01acf0>] (mxc_v4l_open+0x2e0/0x370 [mxc_v4l2_capture])
+[<7f01acf0>] (mxc_v4l_open+0x2e0/0x370 [mxc_v4l2_capture]) from [<8035fb50>] (v4l2_open+0xd4/0x100)
+[<8035fb50>] (v4l2_open+0xd4/0x100) from [<800f5270>] (chrdev_open+0x10c/0x1d0)
+[<800f5270>] (chrdev_open+0x10c/0x1d0) from [<800eff04>] (__dentry_open.isra.14+0x16c/0x2b4)
+[<800eff04>] (__dentry_open.isra.14+0x16c/0x2b4) from [<800fe064>] (do_last.isra.34+0x308/0x684)
+[<800fe064>] (do_last.isra.34+0x308/0x684) from [<800fe5b8>] (path_openat+0xb8/0x3a4)
+[<800fe5b8>] (path_openat+0xb8/0x3a4) from [<800fe980>] (do_filp_open+0x2c/0x80)
+[<800fe980>] (do_filp_open+0x2c/0x80) from [<800f0e40>] (do_sys_open+0xdc/0x174)
+[<800f0e40>] (do_sys_open+0xdc/0x174) from [<80041f80>] (ret_fast_syscall+0x0/0x30)
+Division by zero in kernel.
+[<800487f4>] (unwind_backtrace+0x0/0xf8) from [<8022e554>] (Ldiv0+0x8/0x10)
+[<8022e554>] (Ldiv0+0x8/0x10) from [<7f024cd4>] (OV2281_set_bandingfilter+0x78/0xcc [ov2281_camera_mipi])
+[<7f024cd4>] (OV2281_set_bandingfilter+0x78/0xcc [ov2281_camera_mipi]) from [<7f02513c>] (ov2281_init_mode+0x304/0x588 [ov2281_camera_mipi])
+[<7f02513c>] (ov2281_init_mode+0x304/0x588 [ov2281_camera_mipi]) from [<8036bc04>] (v4l2_int_ioctl_0+0x54/0x68)
+[<8036bc04>] (v4l2_int_ioctl_0+0x54/0x68) from [<7f01acf0>] (mxc_v4l_open+0x2e0/0x370 [mxc_v4l2_capture])
+[<7f01acf0>] (mxc_v4l_open+0x2e0/0x370 [mxc_v4l2_capture]) from [<8035fb50>] (v4l2_open+0xd4/0x100)
+[<8035fb50>] (v4l2_open+0xd4/0x100) from [<800f5270>] (chrdev_open+0x10c/0x1d0)
+[<800f5270>] (chrdev_open+0x10c/0x1d0) from [<800eff04>] (__dentry_open.isra.14+0x16c/0x2b4)
+[<800eff04>] (__dentry_open.isra.14+0x16c/0x2b4) from [<800fe064>] (do_last.isra.34+0x308/0x684)
+[<800fe064>] (do_last.isra.34+0x308/0x684) from [<800fe5b8>] (path_openat+0xb8/0x3a4)
+[<800fe5b8>] (path_openat+0xb8/0x3a4) from [<800fe980>] (do_filp_open+0x2c/0x80)
+[<800fe980>] (do_filp_open+0x2c/0x80) from [<800f0e40>] (do_sys_open+0xdc/0x174)
+[<800f0e40>] (do_sys_open+0xdc/0x174) from [<80041f80>] (ret_fast_syscall+0x0/0x30)
+Division by zero in kernel.
+[<800487f4>] (unwind_backtrace+0x0/0xf8) from [<8022e554>] (Ldiv0+0x8/0x10)
+[<8022e554>] (Ldiv0+0x8/0x10) from [<7f024d18>] (OV2281_set_bandingfilter+0xbc/0xcc [ov2281_camera_mipi])
+[<7f024d18>] (OV2281_set_bandingfilter+0xbc/0xcc [ov2281_camera_mipi]) from [<7f02513c>] (ov2281_init_mode+0x304/0x588 [ov2281_camera_mipi])
+[<7f02513c>] (ov2281_init_mode+0x304/0x588 [ov2281_camera_mipi]) from [<8036bc04>] (v4l2_int_ioctl_0+0x54/0x68)
+[<8036bc04>] (v4l2_int_ioctl_0+0x54/0x68) from [<7f01acf0>] (mxc_v4l_open+0x2e0/0x370 [mxc_v4l2_capture])
+[<7f01acf0>] (mxc_v4l_open+0x2e0/0x370 [mxc_v4l2_capture]) from [<8035fb50>] (v4l2_open+0xd4/0x100)
+[<8035fb50>] (v4l2_open+0xd4/0x100) from [<800f5270>] (chrdev_open+0x10c/0x1d0)
+[<800f5270>] (chrdev_open+0x10c/0x1d0) from [<800eff04>] (__dentry_open.isra.14+0x16c/0x2b4)
+[<800eff04>] (__dentry_open.isra.14+0x16c/0x2b4) from [<800fe064>] (do_last.isra.34+0x308/0x684)
+[<800fe064>] (do_last.isra.34+0x308/0x684) from [<800fe5b8>] (path_openat+0xb8/0x3a4)
+[<800fe5b8>] (path_openat+0xb8/0x3a4) from [<800fe980>] (do_filp_open+0x2c/0x80)
+[<800fe980>] (do_filp_open+0x2c/0x80) from [<800f0e40>] (do_sys_open+0xdc/0x174)
+[<800f0e40>] (do_sys_open+0xdc/0x174) from [<80041f80>] (ret_fast_syscall+0x0/0x30)
+sensor chip is ov2281_mipi_camera
+sensor supported frame size:
+ 1920x1080
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10ZS1:RAW
+B
+sensor frame format: Y10B
+senmipi_csi2_set_datatype ZS2:43
+sor frame format: Y10B
+sensor frmxc_v4l2_s_param: vidioc_int_s_parm returned an error -22
+ame format: Y10B
+sensor frame format: Y10B
+VIDIOC_S_PARM failed
+get format failed
+

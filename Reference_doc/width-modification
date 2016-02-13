@@ -1,0 +1,157 @@
+In this file we can set the bits
+ 
+drivers/mxc/ipu3/ipu_param_mem.h
+	_ipu_ch_param_init  -- In this function
+
+	height = 1350;	(8 bit)
+	height = 675;	(16 bit)
+
+ 	case IPU_PIX_FMT_GENERIC_16: -- In this case
+
+		ipu_ch_param_set_field(&params, 0, 107, 3, 3);   //BPP 3-16bit, 5-8bits per pixel
+
+		ipu_ch_param_set_field(&params, 1, 85, 4, 6);	//PFS 6-generic
+
+		ipu_ch_param_set_field(&params, 1, 78, 7, 31);	//32BPP => 1 -> 16 pixels
+
+
+ov2281_mipi.c
+
+	ioctl_g_ifparm -- In this function
+		p->u.bt656.mode = V4L2_IF_TYPE_BT656_MODE_NOBT_10BIT;(10 bit)
+
+
+
+
+
+//////////////////////////////
+
+
+////////////////////////
+Zumi CSI_SENS_CONF = 0x04009B10 
+Zumi CSI_ACT_FRM_SIZE = 0x0437077F
+Zumi CSI_SENS_FRM_SIZE= 0x043704AF
+
+////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ./mxc_v4l2_capture.out -d /dev/video1 -iw 1920 -ih 1
+080 -ow 1920 -oh 1080 -r 0 -fr 30 test2.yuv
+in_width = 1920, in_height = 1080ioctl_g_fmt_cap : ZS6:2 
+
+out_width = 1920, out_height = ZS20:ipu_csi_init_interface pixel_fmt:30314742
+1080
+top = 0, left = 0
+ZS20:ipu_csi_init_interface7
+ZS1:RAW
+********Zumi : ov2281_set_virtual_channel : channel_id = 0 channel = 1 
+********Zumi : ov2281_set_virtual_channel : 0x4804 value = 2c 
+*******Zumi : ov2281_set_virtual_channel : After 0x4813 Val = 5 channel = 5 
+*******Zumi : ov2281_set_virtual_channel : After 0x4850 Val = 10 channel = 16 
+sensor chip is ov2281_mipi_camera
+sensor supported frame size:
+ 1920x1080
+ 0x0
+sensor frame format: BG10
+sensor frame format: BG10
+ZS1:RAW
+ZS2:width:1920,hight:1080********Zumi : ov2281_set_virtual_channel : channel_id = 0 channel = 1 
+********Zumi : ov2281_set_virtual_channel : 0x4804 value = 2c 
+*******Zumi : ov2281_set_virtual_channel : After 0x4813 Val = 5 channel = 5 
+*******Zumi : ov2281_set_virtual_channel : After 0x4850 Val = 10 channel = 16 
+V4L2_IF_TYPE_BT656_MODE_NOBT_10BIT
+ioctl_g_fmt_cap : ZS6:2 
+Zumi1   g_fmt_cap returns widthxheight of input as 1920 x 1080
+ZS100:1 cam_fmt.fmt.pix.pixelformat:30314742 csi_param.data_fmt:30314742 
+ZS100:2 cam_fmt.fmt.pix.height:1080 crop_bounds.height:1080 cam->device_type:0
+ZS100:2 cam_fmt.fmt.pix.height:1080 crop_bounds.height:1080 
+ZS20:ipu_csi_init_interface pixel_fmt:32555049
+ZS20:ipu_csi_init_interface4
+ZS20:1 data:9b10
+**********CSI_SENS_FRM_SIZE 1
+ End of mxc_v4l2_s_fmt: v2f pix widthxheight 1920 x 1080
+End of mxc_v4l2_s_fmt: crop_current widthxheight 1920 x 1080
+         Width = 1920    Height = 1080   Image size = 3110400
+         pixelformat = 842093913
+ZS20:csi_enc_setup:cam->v2f.fmt.pix.pixelformat:32315559
+init channel = 15
+imx-ipuv3 imx-ipuv3.0: IPU Warning - IPU_INT_STAT_5 = 0x10800000
+imx-ipuv3 imx-ipuv3.0: IPU Warning - IPU_INT_STAT_10 = 0x00180000
+ZS100:_ipu_smfc_init
+params->csi_mem.mipi_vc:0
+*********************************di_val:2b
+IPU_CSI_MIPI_DI0:
+Zumi CSI_SENS_CONF = 0x04009B10 
+Zumi CSI_ACT_FRM_SIZE = 0x0437077F
+Zumi CSI_SENS_FRM_SIZE= 0x043704AF
+ZS19:IPU_PIX_FMT_GENERIC_16:32555049 int:844451913
+ch 0 word 0 - 00000000 FD200000 004F1A00 C0000000 0010DC95
+ch 0 word 1 - 03280000 00650000 0047C000 0001DFC0 000003BF
+PFS 0x2, BPP 0x0, NPB 0x1f
+FW 1198, FH 1079, EBA0 0x19400000
+EBA1 0x19400000
+Stride 1919
+scan_order 0
+uv_stride 959
+u_offset 0x1fa400
+v_offset 0x278d00
+Width0 0+1, Width1 0+1, Width2 0+1, Width3 0+1, Offset0 31, Offset1 29, Offset2 0, Offset3 0
+IPU_CONF =      0x200007E2
+IDMAC_CONF =    0x0000002F
+IDMAC_CHA_EN1 =         0x10800001
+IDMAC_CHA_EN2 =         0x00000000
+IDMAC_CHA_BUSY =        0x00000000
+IDMAC_CHA_PRI1 =        0x18800001
+IDMAC_CHA_PRI2 =        0x00000000
+IDMAC_BAND_EN1 =        0x00000000
+IDMAC_BAND_EN2 =        0x00000000
+IPU_CHA_DB_MODE_SEL0 =  0x00000001
+IPU_CHA_DB_MODE_SEL1 =  0x00000000
+IPU_CHA_TRB_MODE_SEL0 =         0x10800000
+IPU_CHA_TRB_MODE_SEL1 =         0x00000000
+DMFC_WR_CHAN =  0x00000090
+DMFC_WR_CHAN_DEF =      0x202020F6
+DMFC_DP_CHAN =  0x0000968A
+DMFC_DP_CHAN_DEF =      0x2020F6F6
+DMFC_IC_CTRL =  0x00000002
+IPU_FS_PROC_FLOW1 =     0x00000000
+IPU_FS_PROC_FLOW2 =     0x00000000
+IPU_FS_PROC_FLOW3 =     0x00000000
+IPU_FS_DISP_FLOW1 =     0x00000000
+IPU_VDIC_VDI_FSIZE =    0x00000000
+IPU_VDIC_VDI_C =        0x00000000
+IPU_IC_CONF =   0x00000000
+CSI2_VERSION = 3130302a 
+CSI2_N_LANES= 1 
+CSI2_PHY_SHUTDOWNZ    = 1 
+CSI2_DPHY_RSTZ    = 1 
+CSI2_RESETN = 1 
+CSI2_PHY_STATE = 330 
+CSI2_DATA_IDS_1= 0 
+CSI2_DATA_IDS_2    = 0 
+CSI2_ERR1    = 0 
+CSI2_ERR2 = 0 
+CSI2_MSK1 = 0 
+CSI2_MSK2 = 0 
+CSI2_PHY_TST_CTRL0    = 0 
+CSI2_PHY_TST_CTRL1    = 2a2a 
+CSI2_SFT_RESET = 0 
+ERROR: v4l2 capture: mxc_v4l_dqueue timeout enc_counter 0
+VIDIOC_DQBUF failed.
+ERROR: v4l2 capture: VIDIOC_QBUF: buffer already queued
+VIDIOC_QBUF failed
+root@freescale /unit_tests$ 
+root@freescale /unit_tests$

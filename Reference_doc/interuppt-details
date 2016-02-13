@@ -1,0 +1,90 @@
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000
+zintstatus i=0 int_stat  0x10800000     8--IDMAC_EOF 23 End of Frame of Channel interrupt. This bit is the status bit of End Of Frame of Channel #n
+				       n Indicates the corresponding DMA channel number.
+					  1 Interrupt is requested.
+
+zintstatus i=0 int_ctrl  0x80000001	IDMAC_EOF_EN Enable End of Frame of Channel interrupt. This bit is the control of End Of Frame of Channel #n.
+					n Indicates the corresponding DMA channel number.
+					1 Interrupt is enabled
+
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000
+ 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000
+ 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c (Reserved ->(16th 30th bit) -- 1 Interrupt is requested)
+zintstatus i=8 int_ctrl  0x00000000 
+
+
+
+/////////////////////////////////OV5640///////////////////////////////////
+zintstatus i=0 Error_status: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000001 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000001 
+zintstatus i=0 int_stat  0x10800000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000001 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800001 
+zintstatus i=2 int_ctrl  0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000001 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000001 
+zintstatus i=4 int_ctrl  0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000001 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800001 
+zintstatus i=6 int_ctrl  0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000001 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 300 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000001 
+Error 1 = 0 
+Error 2 = 0 
+mxc_v4l_dqueue ZS7:8buf.index 0
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000000 
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0x00000001 
+

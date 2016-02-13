@@ -1,0 +1,73 @@
+//////////////////////////////////////////////////////////////////////////////////////
+
+root@freescale /unit_tests$ ./mxc_v4l2_capture.out -d /dev/video1 -iw 680 -ih 64
+0 -ow 640 -oh 480 -r 0 -fr 15 test3.yuv
+in_width = 680, in_height = 640
+out_width = 640, out_height = 480
+top = 0, left = 0
+ZS1:RAW
+ov2281_write_reg:write reg error:reg=300e,val=45
+sensor chip is ov2281_mipi_camera
+sensor supported frame size:
+ 1920x1080
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+sensor frame format: Y10B
+sensor frZS1:RAW
+ame format: Y10B
+sensor frame foov2281_read_reg:write reg error:reg=3503
+rmat: Y10B
+sensor frame format: ov2281_write_reg:write reg error:reg=3503,val=3
+Y10B
+sensor frame format: Y10B
+ov2281_write_reg:write reg error:reg=4202,val=f
+sensor frame format: Y10B
+sensorov2281_write_reg:write reg error:reg=103,val=1
+ frame format: Y10B
+sensor framemxc_v4l2_s_param: vidioc_int_s_parm returned an error -1
+ format: Y10B
+sensor frame format: Y10B
+VIDIOC_S_PARM failed
+get format failed
+
+////////////////////////////////////////////////////////////////////////////
+
+root@freescale /unit_tests$ ./mxc_v4l2_capture.out -d /dev/video1 -iw 1920 -ih 1
+080 -ow 1920 -oh 1080 -r 0 -fr 15 test2.yuv
+in_width = 1920, in_height = 1080
+out_width = 1920, out_height = 1080
+top = 0, left = 0
+ZS1:RAW
+ov2281_write_reg:write reg error:reg=300e,val=45
+sensor chip is ov2281_mipi_camera
+sensor supported frame size:
+ 1920x1080
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+ 0x0
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame formatZS1:RAW
+: Y10B
+sensor frame format: Y10Bmxc_v4l2_s_param: vidioc_int_s_parm returned an error -22
+
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+sensor frame format: Y10B
+VIDIOC_S_PARM failed
+get format failed
+root@freescale /unit_tests$ 
+//////////////////////////////////////////////////////////////////////////////

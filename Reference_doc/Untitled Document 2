@@ -1,0 +1,46 @@
+mxc_streamon ZS5:8
+csi_enc_enabling_tasks ZS5:10
+csi_enc_setup : ZS5:11
+ZS5:12 -- CONFIG_MXC_MIPI_CSI2
+csi_enc_setup : ZS5:13 -- sensor_protocol : 0
+ZS5:14 -- v2f.fmt.pix.pixelformat-- 32315559 
+csi_enc_setup ZS5:14 -1075251136 
+ipu_init_channel ZS5:17
+ipu_init_channel ZS5:18 --channel : fffffc0 
+ipu_init_channel ZS11:0 --IPU_CONF : 0x000006E0 
+ipu_init_channel ZS5:19
+ipu_init_channel ZS5:21
+Zumi CSI_SENS_CONF*********** = 0x04009B00 
+Zumi CSI_ACT_FRM_SIZE = 0x0437077F
+Zumi CSI_SENS_FRM_SIZE= 0x0437077F
+csi_enc_setup ZS12:20 cam->ipu:80b1b458 CSI_MEM:fffffc0 IPU_OUTPUT_BUFFER:0 pixel_fmt:30555049
+cam->v2f.fmt.pix.width:780 cam->v2f.fmt.pix.height:438 cam->v2f.fmt.pix.width:780IPU_ROTATE_NONE:0
+ dummy:19400000 cam->offset.u_offset:0 cam->offset.v_offset:0 
+csi_enc_enabling_tasks ZS5:10 0 
+IPU_CONF =      0x200007E2
+IDMAC_CONF =    0x0000002F
+IDMAC_CHA_EN1 =         0x10800001
+IDMAC_CHA_EN2 =         0x00000000
+IDMAC_CHA_PRI1 =        0x18800001
+IDMAC_CHA_PRI2 =        0x00000000
+IDMAC_BAND_EN1 =        0x00000000
+IDMAC_BAND_EN2 =        0x00000000
+IPU_CHA_DB_MODE_SEL0 =  0x00000001
+IPU_CHA_DB_MODE_SEL1 =  0x00000000
+IPU_CHA_TRB_MODE_SEL0 =         0x10800000
+IPU_CHA_TRB_MODE_SEL1 =         0x00000000
+DMFC_WR_CHAN =  0x00000090
+DMFC_WR_CHAN_DEF =      0x202020F6
+DMFC_DP_CHAN =  0x0000968A
+DMFC_DP_CHAN_DEF =      0x2020F6F6
+DMFC_IC_CTRL =  0x00000002
+IPU_FS_PROC_FLOW1 =     0x00000000
+IPU_FS_PROC_FLOW2 =     0x00000000
+IPU_FS_PROC_FLOW3 =     0x00000000
+IPU_FS_DISP_FLOW1 =     0x00000000
+IPU_VDIC_VDI_FSIZE =    0x00000000
+IPU_VDIC_VDI_C =        0x00000000
+IPU_IC_CONF =   0x00000000
+mxc_streamon ZS5:9 0
+mxc_v4l_dqueue ZS5:1
+

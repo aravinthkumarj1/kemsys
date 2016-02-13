@@ -1,0 +1,11 @@
+manoj@manoj:~/aravinth/Kemsys/kernel/linux-imx6/drivers/media/video/mxc/capture$ vim mxc_v4l2_capture.c 
+
+
+mxc_v4l2_s_fmt ZS12:03 V4L2_PIX_FMT_YVU420:32315659
+
+
+drivers/mxc/mipi/mxc_mipi_csi2.c
+///////////////////////////////////////////////////
++    mipi_csi2_write(info, 0x00000028, CSI2_PHY_TST_CTRL1);  // DMJM: change clock from 14 to 28 (to 280 Mbps) for OV5647
+////////////////////////////////////////////////////
+ov2281 --840Mbps/lane

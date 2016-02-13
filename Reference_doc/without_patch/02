@@ -1,0 +1,423 @@
+mb-desktop-dotdesktop: failed to open /usr/local/share/applications
+mb-desktop-dotdesktop: failed to open //.applications
+
+root@freescale ~$ cd /Zumi/debug_ov22/
+root@freescale /Zumi/debug_ov22$ 
+root@freescale /Zumi/debug_ov22$ insmod camera_sensor_clock.ko 
+insroot@freescale /Zumi/debug_ov22$ insmod ipu_bg_overlay_sdc.ko 
+iroot@freescale /Zumi/debug_ov22$ insmod ipu_fg_overlay_sdc.ko 
+insmroot@freescale /Zumi/debug_ov22$ insmod ipu_csi_enc.ko 
+insmroot@freescale /Zumi/debug_ov22$ insmod ipu_prp_enc.ko 
+insroot@freescale /Zumi/debug_ov22$ insmod ipu_still.ko 
+insroot@freescale /Zumi/debug_ov22$ insmod mxc_v4l2_capture.ko 
+insmoipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+d oipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+v2281root@freescale /Zumi/debug_ov22$ insmod ov2281_camera_mipi.ko
+
+
+cdZUMI****************OV2281 Camera Sensor *************
+ /ov2281_probe ZS6:1 30555049 :V4L2_PIX_FMT_GREY:59455247 V4L2_PIX_FMT_Y10:20303159
+unit_tests/
+
+./mxc_v4l2_capture.oZS1: 0
+uZS2: 56
+ZS3: 70
+t -d ioctl_g_fmt_cap : ZS6:2 
+/droot@freescale /Zumi/debug_ov22$ 
+root@freescale /Zumi/debug_ov22$ 
+root@freescale /Zumi/debug_ov22$ cd /unit_tests/
+root@freescale /unit_tests$ 
+root@freescale /unit_tests$ ./mxc_v4l2_capture.out -d /dev/video1 -iw 1920 -ih 1
+080 -ow 1920 -oh 1080 -r 0 -fr 30 test2.yuv
+in_width = 1920, in_height = 1080mxc_v4l_open ZS5:2
+
+out_width = 1920, out_height = csi_enc_select ZS5:7 bfdf2000
+1080
+top = 0, left = 0
+mxc_v4l_open ZS5:3 0 
+ioctl_g_fmt_cap : ZS6:2 
+ZUMI : On Open: Input to ipu size is 640 x 480 format = 30314742
+ipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+ipu_csi_init_interface ZS6:3 30314742
+IPU_PIX_FMT_YUYV:56595559 IPU_PIX_FMT_UYVY:59565955 IPU_PIX_FMT_RGB24:33424752 IPU_PIX_FMT_BGR24:33524742 IPU_PIX_FMT_GENERIC:30555049
+ IPU_PIX_FMT_RGB565:50424752 IPU_PIX_FMT_RGB555:4f424752
+mipi_csi2_set_lanes ZS7:2 lanes 1 CSI2_N_LANES:1 info->lanes: 2
+
+mipi_csi2_reset ZS14:0 
+ZS1:RAW
+mipi_csi2_set_datatype ZS2:2b
+
+********Zumi : ov2281_set_virtual_channel : channel_id = 0 channel = 1 
+********Zumi : ov2281_set_virtual_channel : 0x4804 value = 2c 
+*******Zumi : ov2281_set_virtual_channel : After 0x4813 Val = 5 channel = 5 
+*******Zumi : ov2281_set_virtual_channel : After 0x4850 Val = 11 channel = 17 
+sensor chip is ov2281_mipi_camera
+sensor supported frame size:
+ 1920x1080
+ 0x0
+sensor frame format: BG10
+sensor frame format: BG10
+mipi_csi2_set_lanes ZS7:2 lanes 1 CSI2_N_LANES:1 info->lanes: 2
+ZS1:RAW
+mipi_csi2_set_datatype ZS2:2b
+ZS2:width:1920,hight:1080********Zumi : ov2281_set_virtual_channel : channel_id = 0 channel = 1 
+********Zumi : ov2281_set_virtual_channel : 0x4804 value = 2c 
+*******Zumi : ov2281_set_virtual_channel : After 0x4813 Val = 5 channel = 5 
+*******Zumi : ov2281_set_virtual_channel : After 0x4850 Val = 11 channel = 17 
+mxc_v4l2_s_param ZS7:10  
+ioctl_g_fmt_cap : ZS6:2 
+mxc_v4l2_s_param ZS12:10 cam_fmt.fmt.pix.pixelformat:30314742 
+ipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+ipu_csi_init_interface ZS6:3 30555049
+IPU_PIX_FMT_YUYV:56595559 IPU_PIX_FMT_UYVY:59565955 IPU_PIX_FMT_RGB24:33424752 IPU_PIX_FMT_BGR24:33524742 IPU_PIX_FMT_GENERIC:30555049
+ IPU_PIX_FMT_RGB565:50424752 IPU_PIX_FMT_RGB555:4f424752
+ZS6:7 IPU_PIX_FMT_GENERIC: 
+Zumi CSI_SENS_CONF = 0x00009B00
+Zumi CSI_ACT_FRM_SIZE = 0x0437077F
+ipu_csi_set_window_size ZS11:4 CSI_ACT_FRM_SIZE: 2 
+mxc_v4l2_s_fmt:ZS12:0 f->fmt.pix.pixelformat:0x32315559 width:0x00000780 height:0x00000438
+valid_mode ZS12:0 
+mxc_v4l2_s_fmt ZS12:0 0x00000001 
+valid_mode ZS12:0 
+mxc_v4l2_s_fmt ZS12:3 f->fmt.pix.pixelformat 0x32315559 
+mxc_v4l2_s_fmt ZS12:03 V4L2_PIX_FMT_YUV420:32315559 
+mxc_v4l2_s_fmt ZS12:03 V4L2_PIX_FMT_YVU420:32315659 
+ZS12:02End of mxc_v4l2_s_fmt: v2f pix widthxheight 1920 x 1080
+mxc_v4l2_g_fmt ZS12:02 
+         Width = 1920    Height = 1080   Image size = 3110400
+         pixelformat = 842093913
+mxc_streamon ZS5:8
+csi_enc_enabling_tasks ZS5:10
+csi_enc_setup : ZS5:11
+ZS5:12 -- CONFIG_MXC_MIPI_CSI2
+csi_enc_setup : ZS5:13 -- sensor_protocol : 0
+ZS5:14 -- v2f.fmt.pix.pixelformat-- 32315559 
+csi_enc_setup ZS12:21 V4L2_PIX_FMT_YUV420:32315559 IPU_PIX_FMT_YUV420P:30323449 pixel_fmt:30323449
+csi_enc_setup ZS5:14 -1075250816 
+ipu_init_channel ZS5:17
+ipu_init_channel ZS5:18 --channel : fffffc0 
+ipu_init_channel ZS11:0 --IPU_CONF : 0x000006E0 
+ipu_init_channel ZS5:19
+ipu_init_channel ZS5:21
+CSI_MEM0 csi: 1 mipi_id:0
+Zumi CSI_SENS_CONF*********** = 0x04009B00 
+Zumi CSI_ACT_FRM_SIZE = 0x0437077F
+Zumi CSI_SENS_FRM_SIZE= 0x0437077F
+csi_enc_setup ZS12:20 cam->ipu:80b1d45c CSI_MEM:fffffc0 IPU_OUTPUT_BUFFER:0 pixel_fmt:30323449
+cam->v2f.fmt.pix.width:780 cam->v2f.fmt.pix.height:438 cam->v2f.fmt.pix.width:780IPU_ROTATE_NONE:0
+ dummy:19400000 cam->offset.u_offset:0 cam->offset.v_offset:0 
+ipu_init_channel_buffer ***ZS13:01*** pixel_fmt:30555049 width:780 height:438 
+ZS13:0IPU_PIX_FMT_GENERIC -- fmt:30555049
+ZS13:1IPU_PIX_FMT_GENERIC -- fmt:30555049
+ZS13:0IPU_PIX_FMT_GENERIC -- fmt:30555049
+ZS13:1IPU_PIX_FMT_GENERIC -- fmt:30555049
+ch 0 word 0 - 00000000 00000000 00000000 E0002800 0010DCEF
+ch 0 word 1 - 03280000 00650000 00CFC000 0003BFC0 00000000
+PFS 0x6, BPP 0x5, NPB 0x3f
+FW 1919, FH 1079, EBA0 0x19400000
+EBA1 0x19400000
+Stride 3839
+scan_order 0
+uv_stride 0
+u_offset 0x0
+v_offset 0x0
+Width0 0+1, Width1 0+1, Width2 0+1, Width3 0+1, Offset0 0, Offset1 0, Offset2 0, Offset3 0
+csi_enc_enabling_tasks ZS5:10 0 
+IPU_CONF =      0x200007E2
+IDMAC_CONF =    0x0000002F
+IDMAC_CHA_EN1 =         0x10800001
+IDMAC_CHA_EN2 =         0x00000000
+IDMAC_CHA_PRI1 =        0x18800001
+IDMAC_CHA_PRI2 =        0x00000000
+IDMAC_BAND_EN1 =        0x00000000
+IDMAC_BAND_EN2 =        0x00000000
+IPU_CHA_DB_MODE_SEL0 =  0x00000001
+IPU_CHA_DB_MODE_SEL1 =  0x00000000
+IPU_CHA_TRB_MODE_SEL0 =         0x10800000
+IPU_CHA_TRB_MODE_SEL1 =         0x00000000
+DMFC_WR_CHAN =  0x00000090
+DMFC_WR_CHAN_DEF =      0x202020F6
+DMFC_DP_CHAN =  0x0000968A
+DMFC_DP_CHAN_DEF =      0x2020F6F6
+DMFC_IC_CTRL =  0x00000002
+IPU_FS_PROC_FLOW1 =     0x00000000
+IPU_FS_PROC_FLOW2 =     0x00000000
+IPU_FS_PROC_FLOW3 =     0x00000000
+IPU_FS_DISP_FLOW1 =     0x00000000
+IPU_VDIC_VDI_FSIZE =    0x00000000
+IPU_VDIC_VDI_C =        0x00000000
+IPU_IC_CONF =   0x00000000
+mxc_streamon ZS5:9 0
+mxc_v4l_dqueue ZS5:1
+CSI2_VERSION = 3130302a 
+CSI2_N_LANES= 1 
+CSI2_PHY_SHUTDOWNZ    = 1 
+CSI2_DPHY_RSTZ    = 1 
+CSI2_RESETN = 1 
+CSI2_PHY_STATE = 300 
+CSI2_DATA_IDS_1= 0 
+CSI2_DATA_IDS_2    = 0 
+CSI2_ERR1    = 11000333 
+CSI2_ERR2 = 330 
+CSI2_MSK1 = 0 
+CSI2_MSK2 = 0 
+CSI2_PHY_TST_CTRL0    = 0 
+CSI2_PHY_TST_CTRL1    = 202 
+CSI2_SFT_RESET = 0 
+dump_mipi_reg = 0 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 300 
+Error 1 = 11000333 
+Error 2 = 330 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 330 
+Error 1 = 11000333 
+Error 2 = 330 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 330 
+Error 1 = 11000333 
+Error 2 = 330 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 330 
+Error 1 = 11000333 
+Error 2 = 330 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 300 
+Error 1 = 11000333 
+Error 2 = 330 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 330 
+Error 1 = 11000333 
+Error 2 = 330 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 330 
+Error 1 = 11000333 
+Error 2 = 330 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 330 
+Error 1 = 11000333 
+Error 2 = 330 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 300 
+Error 1 = 11000333 
+Error 2 = 330 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 330 
+Error 1 = 11000333 
+Error 2 = 330 
+mxc_v4l_dqueue ZS7:7  
+ERROR: v4l2 capture: mxc_v4l_dqueue Timeout enc_counter 0
+VIDIOC_DQBUF failed.
+ERROR: v4l2 capture: VIDIOC_QBUF: buffer already queued
+VIDIOC_QBUF failed
+root@freescale /unit_tests$

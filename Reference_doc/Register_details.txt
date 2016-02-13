@@ -1,0 +1,107 @@
+/////////////////////OV2281///////////////////
+CSI2_VERSION = 3130302a 
+CSI2_N_LANES= 1 
+CSI2_PHY_SHUTDOWNZ    = 1 
+CSI2_DPHY_RSTZ    = 1 
+CSI2_RESETN = 1 
+CSI2_PHY_STATE = 330 
+CSI2_DATA_IDS_1= 0 
+CSI2_DATA_IDS_2    = 0 
+CSI2_ERR1    = 0 
+CSI2_ERR2 = 0 
+CSI2_MSK1 = 0 
+CSI2_MSK2 = 0 
+CSI2_PHY_TST_CTRL0    = 0 
+CSI2_PHY_TST_CTRL1    = 1414 
+CSI2_SFT_RESET = 0
+
+////////////////////////////////////////
+
+OV2281 register details:-
+------------------------
+
+CSI2_N_LANES= 1 
+	=> N_LANES -- 01	2 Data Lanes (Lane 0, and 1)
+
+CSI2_PHY_SHUTDOWNZ    = 1
+	=> PHY_SHUTDOWNZ
+
+CSI2_DPHY_RSTZ    = 1
+	=> DPHY_RSTZ	--	DPHY reset output. Active Low
+
+CSI2_RESETN = 1 
+	=> CSI2_RESETN	--	CSI-2 controller reset output. Active Low
+
+CSI2_PHY_STATE = 330
+	3=> phy_rxulpsclknot     (Clock Lane module has entered the Ultra Low Power state)	
+	    phy_rxclkactivehs    (clock lane is actively receiving a DDR clock)	
+	3=> phy_stopstatedata_1  (Data Lane 1 in Stop state)  
+	    phy_stopstatedata_0  (Data Lane 0 in Stop state)
+	0=>
+
+CSI2_PHY_TST_CTRL1    = 1414 
+	15–8	=> phy_testdout
+	7-0	=> phy_testdin
+
+
+//////////////////////////////////////////////////////////////////
+
+IPU_CONF = 0x200007E2
+
+CSI1_DATA_SOURCE 29th bit--- MIPI
+VDI_EN
+SISG_EN 
+DMFC_EN -1 
+DC_EN - 1
+SMFC_EN  -1
+DI1_EN -1
+DI0_EN -1
+DP_EN - 1
+Reserved
+IRT_EN
+IC_EN  
+CSI1_EN = 1
+CSI0_EN  
+
+CSI1_SENS_CONF = 0x04009B00
+
+CSI1_DATA_DEST (26-24bit)  == 100 -- destination is IDMAC via SMFC
+CSI1_EXT_VSYNC (15th bit) == External VSYNC mode 1
+CSI1_DATA_WIDTH (14-11bit)  == 0011 -- 10 bits per color
+CSI1_SENS_DATA_FORMAT (8-10th bit) = 0x011 Bayer or Generic data
+
+CSI_ACT_FRM_SIZE = 0x0437077F
+	=> height 1080 width 1920
+
+CSI_SENS_FRM_SIZE= 0x0437077F
+	=> => height 1080 width 1920
+
+////////////////////////////Interrupt Register details///////////////
+
+zintstatus i=0 int_stat  0x10800000     8--IDMAC_EOF 23 End of Frame of Channel interrupt. This bit is the status bit of End Of Frame of Channel #n
+				       n Indicates the corresponding DMA channel number.
+					  1 Interrupt is requested.
+
+zintstatus i=0 int_ctrl  0x80000001	IDMAC_EOF_EN Enable End of Frame of Channel interrupt. This bit is the control of End Of Frame of Channel #n.
+					n Indicates the corresponding DMA channel number.
+					1 Interrupt is enabled
+
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000
+ 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000
+ 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c (Reserved ->(16th 30th bit) -- 1 Interrupt is requested)
+zintstatus i=8 int_ctrl  0x00000000 

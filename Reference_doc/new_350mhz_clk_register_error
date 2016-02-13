@@ -1,0 +1,47 @@
+IPU_CONF =      0x200007E2
+IDMAC_CONF =    0x0000002F
+IDMAC_CHA_EN1 =         0x10800001
+IDMAC_CHA_EN2 =         0x00000000
+IDMAC_CHA_BUSY =        0x00000000
+IDMAC_CHA_PRI1 =        0x18800001
+IDMAC_CHA_PRI2 =        0x00000000
+IDMAC_BAND_EN1 =        0x00000000
+IDMAC_BAND_EN2 =        0x00000000
+IPU_CHA_DB_MODE_SEL0 =  0x00000001
+IPU_CHA_DB_MODE_SEL1 =  0x00000000
+IPU_CHA_TRB_MODE_SEL0 =         0x10800000
+IPU_CHA_TRB_MODE_SEL1 =         0x00000000
+DMFC_WR_CHAN =  0x00000090
+DMFC_WR_CHAN_DEF =      0x202020F6
+DMFC_DP_CHAN =  0x0000968A
+DMFC_DP_CHAN_DEF =      0x2020F6F6
+DMFC_IC_CTRL =  0x00000002
+IPU_FS_PROC_FLOW1 =     0x00000000
+IPU_FS_PROC_FLOW2 =     0x00000000
+IPU_FS_PROC_FLOW3 =     0x00000000
+IPU_FS_DISP_FLOW1 =     0x00000000
+IPU_VDIC_VDI_FSIZE =    0x00000000
+IPU_VDIC_VDI_C =        0x00000000
+IPU_IC_CONF =   0x00000000
+CSI2_VERSION = 3130302a 
+CSI2_N_LANES= 1 
+CSI2_PHY_SHUTDOWNZ    = 1 
+CSI2_DPHY_RSTZ    = 1 
+CSI2_RESETN = 1 
+CSI2_PHY_STATE = 300 
+CSI2_DATA_IDS_1= 0 
+CSI2_DATA_IDS_2    = 0 
+CSI2_ERR1    = 110 
+1=>err_f_seq_vc0 -Incorrect Frame Sequence detected in Virtual Channel 0
+1=> err_f_bndry_match_vc0  - Error matching Frame Start with Frame End for Virtual Channel 0
+0=> 
+
+CSI2_ERR2 = 30 
+phy_errsoths_1 -- Start of Transmission Error on data lane 1 (synchronization can still be achieved)
+phy_errsoths_0 -- Start of Transmission Error on data lane 0 (synchronization can still be achieved)
+CSI2_MSK1 = 0 
+CSI2_MSK2 = 0 
+CSI2_PHY_TST_CTRL0    = 0 
+CSI2_PHY_TST_CTRL1    = 2a2a 
+CSI2_SFT_RESET = 0 
+

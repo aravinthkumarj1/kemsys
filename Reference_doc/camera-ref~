@@ -16,7 +16,7 @@ Setting bus to 1
 => i2c probe
 Valid chip addresses: 08 48
 
-./mxc_v4l2_capture.out -d /dev/video1 -iw 640 -ih 480 -ow 640 -oh 480 -r 0 -fr 15 test3.yuv
+./mxc_v4l2_capture.out -d /dev/video1 -iw 680 -ih 640 -ow 640 -oh 480 -r 0 -fr 15 test3.yuv
 
 
 ./mxc_v4l2_capture.out -d /dev/video1 -iw 1920 -ih 1080 -ow 1920 -oh 1080 -r 0 -fr 30 test2.yuv

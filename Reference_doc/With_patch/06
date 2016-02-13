@@ -1,0 +1,329 @@
+csi_enc_setup ZS12:21 V4L2_PIX_FMT_YUV420:32315559 IPU_PIX_FMT_YUV420P:30323449 pixel_fmt:30323449
+csi_enc_setup ZS5:14 -1075225344 
+ipu_init_channel ZS5:17
+ipu_init_channel ZS5:18 --channel : fffffc0 
+ipu_init_channel ZS11:0 --IPU_CONF : 0x000006E0 
+ipu_init_channel ZS5:19
+ipu_init_channel ZS5:21
+CSI_MEM0 csi: 1 mipi_id:0
+Zumi CSI_SENS_CONF*********** = 0x04009B00 
+Zumi CSI_ACT_FRM_SIZE = 0x0437077F
+Zumi CSI_SENS_FRM_SIZE= 0x0437077F
+csi_enc_setup ZS12:20 cam->ipu:80b1d45c CSI_MEM:fffffc0 IPU_OUTPUT_BUFFER:0 pixel_fmt:30323449
+cam->v2f.fmt.pix.width:780 cam->v2f.fmt.pix.height:438 cam->v2f.fmt.pix.width:780IPU_ROTATE_NONE:0
+ dummy:19400000 cam->offset.u_offset:0 cam->offset.v_offset:0 
+ipu_init_channel_buffer ***ZS13:01*** pixel_fmt:30555049 width:780 height:438 
+ZS13:0IPU_PIX_FMT_GENERIC -- fmt:30555049
+ZS13:1IPU_PIX_FMT_GENERIC -- fmt:30555049
+ZS13:0IPU_PIX_FMT_GENERIC -- fmt:30555049
+ZS13:1IPU_PIX_FMT_GENERIC -- fmt:30555049
+ch 0 word 0 - 00000000 00000000 00000000 E0002800 0010DCEF
+ch 0 word 1 - 03280000 00650000 00CFC000 0003BFC0 00000000
+PFS 0x6, BPP 0x5, NPB 0x3f
+FW 1919, FH 1079, EBA0 0x19400000
+EBA1 0x19400000
+Stride 3839
+scan_order 0
+uv_stride 0
+u_offset 0x0
+v_offset 0x0
+Width0 0+1, Width1 0+1, Width2 0+1, Width3 0+1, Offset0 0, Offset1 0, Offset2 0, Offset3 0
+csi_enc_enabling_tasks ZS5:10 0 
+IPU_CONF =      0x200007E2
+IDMAC_CONF =    0x0000002F
+IDMAC_CHA_EN1 =         0x10800001
+IDMAC_CHA_EN2 =         0x00000000
+IDMAC_CHA_PRI1 =        0x18800001
+IDMAC_CHA_PRI2 =        0x00000000
+IDMAC_BAND_EN1 =        0x00000000
+IDMAC_BAND_EN2 =        0x00000000
+IPU_CHA_DB_MODE_SEL0 =  0x00000001
+IPU_CHA_DB_MODE_SEL1 =  0x00000000
+IPU_CHA_TRB_MODE_SEL0 =         0x10800000
+IPU_CHA_TRB_MODE_SEL1 =         0x00000000
+DMFC_WR_CHAN =  0x00000090
+DMFC_WR_CHAN_DEF =      0x202020F6
+DMFC_DP_CHAN =  0x0000968A
+DMFC_DP_CHAN_DEF =      0x2020F6F6
+DMFC_IC_CTRL =  0x00000002
+IPU_FS_PROC_FLOW1 =     0x00000000
+IPU_FS_PROC_FLOW2 =     0x00000000
+IPU_FS_PROC_FLOW3 =     0x00000000
+IPU_FS_DISP_FLOW1 =     0x00000000
+IPU_VDIC_VDI_FSIZE =    0x00000000
+IPU_VDIC_VDI_C =        0x00000000
+IPU_IC_CONF =   0x00000000
+mxc_streamon ZS5:9 0
+mxc_v4l_dqueue ZS5:1
+CSI2_VERSION = 3130302a 
+CSI2_N_LANES= 1 
+CSI2_PHY_SHUTDOWNZ    = 1 
+CSI2_DPHY_RSTZ    = 1 
+CSI2_RESETN = 1 
+CSI2_PHY_STATE = 330 
+CSI2_DATA_IDS_1= 0 
+CSI2_DATA_IDS_2    = 0 
+CSI2_ERR1    = 1f001ff3 
+CSI2_ERR2 = df30 
+CSI2_MSK1 = 0 
+CSI2_MSK2 = 0 
+CSI2_PHY_TST_CTRL0    = 0 
+CSI2_PHY_TST_CTRL1    = 606 
+CSI2_SFT_RESET = 0 
+dump_mipi_reg = 0 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 300 
+Error 1 = 1f001ff3 
+Error 2 = 5f30 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 330 
+Error 1 = 1f004773 
+Error 2 = 5f30 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 300 
+Error 1 = 1f001773 
+Error 2 = 7f30 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 330 
+Error 1 = 1f001ff3 
+Error 2 = 5f30 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 300 
+Error 1 = 17001773 
+Error 2 = 5730 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 330 
+Error 1 = 17001773 
+Error 2 = 1730 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 300 
+Error 1 = 17000773 
+Error 2 = 5730 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 330 
+Error 1 = 17001773 
+Error 2 = 5730 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 300 
+Error 1 = 15005773 
+Error 2 = 5730 
+zintstatus i=0 Error_status: 0x00000000 
+zintstatus i=1 Error_status: 0x00000000 
+zintstatus i=2 Error_status: 0x00000000 
+zintstatus i=3 Error_status: 0x00000000 
+zintstatus i=0 int_stat  0x10800000 
+zintstatus i=0 int_ctrl  0x80000001 
+zintstatus i=1 int_stat  0x00000000 
+zintstatus i=1 int_ctrl  0x00080000 
+zintstatus i=2 int_stat  0x10800000 
+zintstatus i=2 int_ctrl  0x00000000 
+zintstatus i=3 int_stat  0x00000000 
+zintstatus i=3 int_ctrl  0x00000000 
+zintstatus i=4 int_stat  0x00000000 
+zintstatus i=4 int_ctrl  0x00000000 
+zintstatus i=5 int_stat  0x00000000 
+zintstatus i=5 int_ctrl  0x00000000 
+zintstatus i=6 int_stat  0x10800000 
+zintstatus i=6 int_ctrl  0x00000000 
+zintstatus i=7 int_stat  0x00000000 
+zintstatus i=7 int_ctrl  0x00000000 
+zintstatus i=8 int_stat  0xe0ffc20c 
+zintstatus i=8 int_ctrl  0x00000000 
+Mipi reg = 330 
+Error 1 = 1f001773 
+Error 2 = 5f30 
+mxc_v4l_dqueue ZS7:7  
+ERROR: v4l2 capture: mxc_v4l_dqueue Timeout enc_counter 0
+VIDIOC_DQBUF failed.
+ERROR: v4l2 capture: VIDIOC_QBUF: buffer already queued
+VIDIOC_QBUF failed
+root@freescale /unit_tests$

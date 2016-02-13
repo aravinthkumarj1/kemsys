@@ -1,0 +1,625 @@
+U-Boot 2016.01-00277-g57e5eca (Jan 21 2016 - 12:00:50 +0530)
+
+CPU:   Freescale i.MX6DL rev1.1 996 MHz (running at 792 MHz)
+CPU:   Commercial temperature grade (0C to 95C) at 36C
+Reset cause: POR
+Board: MX6-SabreSD
+I2C:   ready
+DRAM:  1 GiB
+PMIC:  PFUZE100 ID=0x10
+MMC:   FSL_SDHC: 0, FSL_SDHC: 1, FSL_SDHC: 2
+PCI:   pcie phy link never came up
+No panel detected: default to Hannstar-XGA
+Display: Hannstar-XGA (1024x768)
+In:    serial
+Out:   serial
+Err:   serial
+Net:   FEC [PRIME]
+Hit any key to stop autoboot:  0 
+switch to partitions #0, OK
+mmc1 is current device
+
+MMC read: dev # 1, block # 2048, count 8192 ... 8192 blocks read: OK
+## Booting kernel from Legacy Image at 12000000 ...
+   Image Name:   Linux-3.0.35-g894d612-dirty
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    3875100 Bytes = 3.7 MiB
+   Load Address: 10008000
+   Entry Point:  10008000
+   Verifying Checksum ... OK
+   Loading Kernel Image ... OK
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+Linux version 3.0.35-g894d612-dirty (manoj@manoj) (gcc version 4.6.2 20110630 (prerelease) (Freescale MAD -- Linaro 2011.07 -- Built at 2011/06
+CPU: ARMv7 Processor [412fc09a] revision 10 (ARMv7), cr=10c53c7d
+CPU: VIPT nonaliasing data cache, VIPT aliasing instruction cache
+Machine: Freescale i.MX 6Quad/DualLite/Solo Sabre-SD Board
+Memory policy: ECC disabled, Data cache writealloc
+CPU identified as i.MX6DL/SOLO, silicon rev 1.1
+PERCPU: Embedded 7 pages/cpu @8c008000 s5440 r8192 d15040 u32768
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 227328
+Kernel command line: console=ttymxc0,115200 root=/dev/mmcblk1p1 rootwait
+PID hash table entries: 4096 (order: 2, 16384 bytes)
+Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+Memory: 640MB 256MB = 896MB total
+Memory: 896876k/896876k available, 151700k reserved, 0K highmem
+Virtual kernel memory layout:
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+    fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+    DMA     : 0xf4600000 - 0xffe00000   ( 184 MB)
+    vmalloc : 0xc0800000 - 0xf2000000   ( 792 MB)
+    lowmem  : 0x80000000 - 0xc0000000   (1024 MB)
+    pkmap   : 0x7fe00000 - 0x80000000   (   2 MB)
+    modules : 0x7f000000 - 0x7fe00000   (  14 MB)
+      .init : 0x80008000 - 0x8003c000   ( 208 kB)
+      .text : 0x8003c000 - 0x80a94a50   (10595 kB)
+      .data : 0x80a96000 - 0x80af9d20   ( 400 kB)
+       .bss : 0x80af9d44 - 0x80b47d0c   ( 312 kB)
+SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+Preemptible hierarchical RCU implementation.
+NR_IRQS:624
+MXC GPIO hardware
+sched_clock: 32 bits at 3000kHz, resolution 333ns, wraps every 1431655ms
+Set periph_clk's parent to pll2_pfd_400M!
+arm_max_freq=2
+MXC_Early serial console at MMIO 0x2020000 (options '115200')
+bootconsole [ttymxc0] enabled
+Console: colour dummy device 80x30
+Calibrating delay loop... 1581.05 BogoMIPS (lpj=7905280)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 512
+CPU: Testing write buffer coherency: ok
+hw perfevents: enabled with ARMv7 Cortex-A9 PMU driver, 7 counters available
+CPU1: Booted secondary processor
+Brought up 2 CPUs
+SMP: Total of 2 processors activated (3162.11 BogoMIPS).
+print_constraints: dummy: 
+NET: Registered protocol family 16
+print_constraints: vddpu: 725 <--> 1300 mV at 1150 mV fast normal 
+print_constraints: vddcore: 725 <--> 1300 mV at 1150 mV fast normal 
+print_constraints: vddsoc: 725 <--> 1300 mV at 1175 mV fast normal 
+print_constraints: vdd2p5: 2000 <--> 2775 mV at 2400 mV fast normal 
+print_constraints: vdd1p1: 800 <--> 1400 mV at 1100 mV fast normal 
+print_constraints: vdd3p0: 2625 <--> 3400 mV at 3000 mV fast normal 
+imx_add_mxc_pwm:pdata=  (null)
+imx_add_mxc_pwm:pdata=  (null)
+imx_add_mxc_pwm:pdata=  (null)
+imx_add_mxc_pwm:pdata=  (null)
+hw-breakpoint: found 6 breakpoint and 1 watchpoint registers.
+hw-breakpoint: 1 breakpoint(s) reserved for watchpoint single-step.
+hw-breakpoint: maximum watchpoint size is 4 bytes.
+L310 cache controller enabled
+l2x0: 16 ways, CACHE_ID 0x410000c8, AUX_CTRL 0x32450000, Cache size: 524288 B
+bio: create slab <bio-0> at 0
+mxs-dma mxs-dma-apbh: initialized
+print_constraints: SPKVDD: 4200 mV 
+print_constraints: vmmc: 3300 mV 
+SCSI subsystem initialized
+spi_imx imx6q-ecspi.0: probed
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+Freescale USB OTG Driver loaded, $Revision: 1.55 $
+mc_pfuze 1-0008: ID: 0,Full lay: 1 ,Metal lay: 1
+mc_pfuze 1-0008: FAB: 0 ,FIN: 0
+print_constraints: PFUZE100_SW1A: 300 <--> 1875 mV at 1300 mV 
+print_constraints: PFUZE100_SW1B: 300 <--> 1875 mV at 300 mV 
+print_constraints: PFUZE100_SW1C: 300 <--> 1875 mV at 1300 mV 
+print_constraints: PFUZE100_SW2: 800 <--> 3950 mV at 3300 mV 
+print_constraints: PFUZE100_SW3A: 400 <--> 1975 mV at 1500 mV 
+print_constraints: PFUZE100_SW3B: 400 <--> 1975 mV at 1500 mV 
+print_constraints: PFUZE100_SW4: 800 <--> 3950 mV at 3150 mV 
+print_constraints: PFUZE100_SWBST: 5000 <--> 5150 mV at 5000 mV 
+print_constraints: PFUZE100_VSNVS: 1200 <--> 3000 mV at 1800 mV 
+print_constraints: PFUZE100_VREFDDR: at 750 mV 
+print_constraints: PFUZE100_VGEN1: 800 <--> 1550 mV at 1500 mV 
+print_constraints: PFUZE100_VGEN2: 800 <--> 1550 mV at 1500 mV 
+print_constraints: PFUZE100_VGEN3: 1800 <--> 3300 mV at 2800 mV 
+print_constraints: PFUZE100_VGEN4: 1800 <--> 3300 mV at 1800 mV 
+print_constraints: PFUZE100_VGEN5: 1800 <--> 3300 mV at 3000 mV 
+print_constraints: PFUZE100_VGEN6: 1800 <--> 3300 mV at 3300 mV 
+imx-ipuv3 imx-ipuv3.0: IPU DMFC NORMAL mode: 1(0~1), 5B(4,5), 5F(6,7)
+mxc_mipi_csi2 mxc_mipi_csi2: i.MX MIPI CSI2 driver probed
+mxc_mipi_csi2 mxc_mipi_csi2: i.MX MIPI CSI2 dphy version is 0x3130302a
+MIPI CSI2 driver module loaded
+Advanced Linux Sound Architecture Driver Version 1.0.24.
+Bluetooth: Core ver 2.16
+NET: Registered protocol family 31
+Bluetooth: HCI device and connection manager initialized
+Bluetooth: HCI socket layer initialized
+Bluetooth: L2CAP socket layer initialized
+Bluetooth: SCO socket layer initialized
+cfg80211: Calling CRDA to update world regulatory domain
+max17135 2-0048: PMIC MAX17135 for eInk display
+i2c-core: driver [max17135] using legacy suspend method
+i2c-core: driver [max17135] using legacy resume method
+Switching to clocksource mxc_timer1
+NET: Registered protocol family 2
+IP route cache hash table entries: 32768 (order: 5, 131072 bytes)
+TCP established hash table entries: 131072 (order: 8, 1048576 bytes)
+TCP bind hash table entries: 65536 (order: 7, 786432 bytes)
+TCP: Hash tables configured (established 131072 bind 65536)
+TCP reno registered
+UDP hash table entries: 512 (order: 2, 16384 bytes)
+UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+NET: Registered protocol family 1
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+PMU: registered new PMU device of type 0
+Static Power Management for Freescale i.MX6
+wait mode is enabled for i.MX6
+cpaddr = c0820000 suspend_iram_base=c08bc000
+PM driver module loaded
+IMX usb wakeup probe
+add wake up source irq 75
+IMX usb wakeup probe
+cpu regulator init ldo=1
+_regulator_get: get() with no identifier
+mx6_cpu_regulator_init: failed to get pu regulator
+i.MXC CPU frequency driver
+JFFS2 version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+msgmni has been set to 1751
+alg: No test for stdrng (krng)
+io scheduler noop registered
+io scheduler deadline registered
+io scheduler cfq registered (default)
+pwm_config: pwm freq = 20000, clk_select=2 clock_rate=16500000
+mxc_mipi_dsi mxc_mipi_dsi: i.MX MIPI DSI driver probed
+MIPI DSI driver module loaded
+mxc_sdc_fb mxc_sdc_fb.0: register mxc display driver ldb
+_regulator_get: get() with no identifier
+ldb_disp_init: ret=1, 1024x768
+ldb_disp_init: 1280x800
+ipu_init_channel ZS5:17
+ipu_init_channel ZS5:18 -- 157285631 
+ipu_init_sync_panel: disp=0, pixel_clk=64998000 64653061
+imx-ipuv3 imx-ipuv3.0: IPU DMFC DP HIGH RESOLUTION: 1(0,1), 5B(2~5), 5F(6,7)
+pwm_config: pwm freq = 20000, clk_select=2 clock_rate=16500000
+ipu_init_channel ZS5:17
+ipu_init_channel ZS5:18 -- 157285631 
+ipu_init_sync_panel: disp=0, pixel_clk=64998000 64653061
+Console: switching to colour frame buffer device 128x48
+mxc_sdc_fb mxc_sdc_fb.1: register mxc display driver ldb
+ldb_disp_init: ret=1, 1024x768
+ldb_disp_init: 1280x800
+ipu_init_channel ZS5:17
+ipu_init_channel ZS5:18 -- 125042687 
+ipu_init_sync_panel: disp=1, pixel_clk=64998000 64653061
+pwm_config: pwm freq = 20000, clk_select=2 clock_rate=16500000
+imx-sdma imx-sdma: loaded firmware 1.1
+imx-sdma imx-sdma: initialized
+Serial: IMX driver
+imx-uart.2: ttymxc2 at MMIO 0x21ec000 (irq = 60) is a IMX
+imx-uart.0: ttymxc0 at MMIO 0x2020000 (irq = 58) is a IMX
+old_ufcr=a81 new_ufcr=b01, old_ucr2=4027 new_ucr2=4027, old_ubir=f num=1f7, old_ubmr=15b denom=c34
+clk=80000000 div=7 num=504 denom=3125 baud=115200
+console [ttymxc0] enabled, bootconsole disabled
+console [ttymxc0] enabled, bootconsole disabled
+loop: module loaded
+m25p80 spi0.0: found m25p32, expected sst25vf016b
+m25p80 spi0.0: m25p32 (4096 Kbytes)
+Creating 2 MTD partitions on "m25p80":
+0x000000000000-0x000000100000 : "bootloader"
+0x000000100000-0x000000400000 : "kernel"
+GPMI NAND driver registered. (IMX)
+vcan: Virtual CAN interface driver
+CAN device driver interface
+flexcan netdevice driver
+FEC Ethernet Driver
+fec_enet_mii_bus: probed
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+fsl-ehci fsl-ehci.0: Freescale On-Chip EHCI Host Controller
+fsl-ehci fsl-ehci.0: new USB bus registered, assigned bus number 1
+fsl-ehci fsl-ehci.0: irq 75, io base 0x02184000
+fsl-ehci fsl-ehci.0: USB 2.0 started, EHCI 1.00
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+add wake up source irq 72
+fsl-ehci fsl-ehci.1: Freescale On-Chip EHCI Host Controller
+fsl-ehci fsl-ehci.1: new USB bus registered, assigned bus number 2
+fsl-ehci fsl-ehci.1: irq 72, io base 0x02184200
+fsl-ehci fsl-ehci.1: USB 2.0 started, EHCI 1.00
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 1 port detected
+Initializing USB Mass Storage driver...
+usbcore: registered new interface driver usb-storage
+USB Mass Storage support registered.
+ARC USBOTG Device Controller driver (1 August 2005)
+g_ether gadget: using random self ethernet address
+g_ether gadget: using random host ethernet address
+usb0: MAC ae:af:cf:c2:90:42
+usb0: HOST MAC a6:59:7d:96:d4:32
+g_ether gadget: controller 'fsl-usb2-udc' not recognized; trying CDC Ethernet (ECM)
+g_ether gadget: Ethernet Gadget, version: Memorial Day 2008
+g_ether gadget: g_ether ready
+Suspend udc for OTG auto detect
+fsl-usb2-udc: bind to driver g_ether 
+mousedev: PS/2 mouse device common for all mice
+input: gpio-keys as /devices/platform/gpio-keys/input/input0
+input: max11801_ts as /devices/platform/imx-i2c.1/i2c-1/1-0048/input/input1
+egalax_ts 1-0004: egalax_ts: failed to read firmware version
+egalax_ts: probe of 1-0004 failed with error -5
+input: eGalax Touch Screen as /devices/platform/imx-i2c.2/i2c-2/2-0004/input/input2
+elan - Read Hello Packet Failed
+elan-touch: probe of 2-0010 failed with error -22
+input: isl29023 light sensor as /devices/virtual/input/input3
+isl29023 2-0044: driver version 1.0 enabled
+i2c-core: driver [isl29023] using legacy suspend method
+i2c-core: driver [isl29023] using legacy resume method
+check_alarm_past: alarm in the past
+snvs_rtc snvs_rtc.0: rtc core: registered snvs_rtc as rtc0
+i2c /dev entries driver
+Linux video capture interface: v2.00
+mxc_v4l2_output mxc_v4l2_output.0: V4L2 device registered as video16
+mxc_v4l2_output mxc_v4l2_output.0: V4L2 device registered as video17
+mxc_v4l2_output mxc_v4l2_output.0: V4L2 device registered as video18
+mag3110 2-000e: check mag3110 chip ID
+input: mag3110 as /devices/virtual/input/input4
+mag3110 2-000e: mag3110 is probed
+i2c-core: driver [mag3110] using legacy suspend method
+i2c-core: driver [mag3110] using legacy resume method
+input: mma845x as /devices/virtual/input/input5
+imx2-wdt imx2-wdt.0: IMX2+ Watchdog Timer enabled. timeout=60s (nowayout=1)
+Bluetooth: Virtual HCI driver ver 1.3
+Bluetooth: HCI UART driver ver 2.2
+Bluetooth: HCIATH3K protocol initialized
+Bluetooth: Generic Bluetooth USB driver ver 0.6
+usbcore: registered new interface driver btusb
+sdhci: Secure Digital Host Controller Interface driver
+sdhci: Copyright(c) Pierre Ossman
+mmc0: SDHCI controller on platform [sdhci-esdhc-imx.3] using ADMA
+mmc1: SDHCI controller on platform [sdhci-esdhc-imx.1] using ADMA
+mmc2: SDHCI controller on platform [sdhci-esdhc-imx.2] using ADMA
+mxc_vdoa mxc_vdoa: i.MX Video Data Order Adapter(VDOA) driver probed
+VPU initialized
+mxc_asrc registered
+anatop_thermal anatop_thermal.0: fuse data: 0x5d554d5f
+Thermal calibration data is 0x5d554d5f
+anatop_thermal_counting_ratio: raw25c=1493 raw_hot=1357 hot_temp=95 cvt_to_raw=8344507889
+Anatop Thermal registered as thermal_zone0
+anatop_thermal_probe: default cooling device is cpufreq!
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+usbcore: registered new interface driver snd-usb-audio
+mxc_hdmi_soc mxc_hdmi_soc.0: MXC HDMI Audio
+Cirrus Logic CS42888 ALSA SoC Codec Driver
+i2c-core: driver [cs42888] using legacy suspend method
+i2c-core: driver [cs42888] using legacy resume method
+imx-hdmi-soc-dai: probe of imx-hdmi-soc-dai.0 failed with error -12
+mmc0: new high speed DDR MMC card at address 0001
+mmcblk0: mmc0:0001 SEM08G 7.39 GiB 
+mmcblk0boot0: mmc0:0001 SEM08G partition 1 1.00 MiB
+mmcblk0boot1: mmc0:0001 SEM08G partition 2 1.00 MiB
+wm8962 0-001a: customer id 0 revision D
+ mmcblk0: unknown partition table
+ mmcblk0boot1: unknown partition table
+ mmcblk0boot0: unknown partition table
+input: WM8962 Beep Generator as /devices/platform/imx-i2c.0/i2c-0/0-001a/input/input6
+asoc: wm8962 <-> imx-ssi.1 mapping ok
+imx_3stack asoc driver
+ALSA device list:
+  #0: wm8962-audio
+NET: Registered protocol family 26
+TCP cubic registered
+NET: Registered protocol family 17
+can: controller area network core (rev 20090105 abi 8)
+NET: Registered protocol family 29
+can: raw protocol (rev 20090105)
+can: broadcast manager protocol (rev 20090105 t)
+Bluetooth: RFCOMM TTY layer initialized
+Bluetooth: RFCOMM socket layer initialized
+Bluetooth: RFCOMM ver 1.11
+Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Bluetooth: BNEP filters: protocol multicast
+Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+lib80211: common routines for IEEE802.11 drivers
+VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+Bus freq driver module loaded
+Bus freq driver Enabled
+mxc_dvfs_core_probe
+DVFS driver module loaded
+regulator_init_complete: PFUZE100_VGEN6: incomplete constraints, leaving on
+regulator_init_complete: PFUZE100_VGEN3: incomplete constraints, leaving on
+regulator_init_complete: PFUZE100_VGEN2: incomplete constraints, leaving on
+regulator_init_complete: PFUZE100_VGEN1: incomplete constraints, leaving on
+snvs_rtc snvs_rtc.0: setting system clock to 1970-01-01 00:00:00 UTC (0)
+Waiting for root device /dev/mmcblk1p1...
+mmc2: new high speed SD card at address 0002
+mmcblk1: mmc2:0002 00000 974 MiB 
+ mmcblk1: p1
+EXT3-fs (mmcblk1p1): error: couldn't mount because of unsupported optional features (240)
+EXT2-fs (mmcblk1p1): error: couldn't mount because of unsupported optional features (240)
+
+EXT4-fs (mmcblk1p1): mounted filesystem with ordered data mode. Opts: (null)
+VFS: Mounted root (ext4 filesystem) on device 179:25.
+Freeing init memory: 208K
+starting pid 1443, tty '': '/etc/rc.d/rcS'
+Mounting /proc and /sys 
+Starting the hotplug events dispatcher udevd
+udevd (1452): /proc/1452/oom_adj is deprecated, please use /proc/1452/oom_score_adj instead.
+Synthesizing initial hotplug events
+Setting the hostname to freescale
+Mounting filesystems
+EXT4-fs (mmcblk1p1): re-mounted. Opts: (null)
+mount: mounting usbfs on /proc/bus/usb failed: No such file or directory
+Starting the dropbear ssh server: 
+D-Bus per-session daemon address is: unix:abstract=/tmp/dbus-qYSSJ4F2oo,guid=c608208d58831825c0de298f00000009
+gtk: creating gdk-pixbuf.loaders
+pango: creating module list
+starting pid 2776, tty '': '/etc/rc.d/rc_gpu.S'
+/etc/rc.d/rc_gpu.S: line 6: /sys/module/galcore/parameters/gpu3DMinClock: No such file or directory
+_XSERVTransSocketOpenCOTSServer: Unable to open socket for inet6
+_XSERVTransOpen: transport open failed for inet6/freescale:0
+_XSERVTransMakeAllCOTSServerListeners: failed to open listener for inet6
+starting pid 2788, tty '': '/etc/rc.d/rc_mxc.S'
+ipu_init_channel ZS5:17
+ipu_init_channel ZS5:18 -- 157285631 
+ipu_init_sync_panel: disp=0, pixel_clk=64998000 64653061
+(EE) XKB: Couldn't open rules file /usr/share/X11/xkb/rules/base
+(EE) XKB: No components provided for device Virtual core keyboard
+
+arm-none-linux-gnueabi-gcc (Freescale MAD -- Linaro 2011.07 -- Built at 2011/08/10 09:20) 4.6.2 20110630 (prerelease)
+root filesystem built on Fri, 16 Aug 2013 20:23:44 +0800
+Freescale Semiconductor, Inc.
+
+freescale login: unrecognised device identifier!
+(EE) config/hal: NewInputDeviceRequest failed (2)
+
+arm-none-linux-gnueabi-gcc (Freescale MAD -- Linaro 2011.07 -- Built at 2011/08/10 09:20) 4.6.2 20110630 (prerelease)
+root filesystem built on Fri, 16 Aug 2013 20:23:44 +0800
+Freescale Semiconductor, Inc.
+
+freescale login: root
+login[2790]: root login on 'ttymxc0'
+
+
+BusyBox v1.20.2 () built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+root@freescale ~$ 
+root@freescale ~$ 
+root@freescale ~$ 
+root@freescale ~$ cd /Zumi/debug_ov22/
+root@freescale /Zumi/debug_ov22$ matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <Alt>n=next
+
+matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <Alt>p=prev
+
+matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <Alt>c=close
+
+matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <Alt>d=desktop
+
+matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <Alt>m=!matchbox-remote -mbmenu
+
+matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <ctrl><alt>x=!xterm
+
+matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <ctrl><alt>r=!rxvt
+
+matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <ctrl><alt>e=!!gpe-calender
+
+matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <alt>Tab=next
+
+matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <alt><shift>Tab=prev
+
+matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <alt>space=taskmenu
+
+matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <alt>escape=!matchbox-remote -mbmenu
+
+matchbox: keyboard does not appear to have a <alt> key.
+matchbox: ignoring key shortcut <alt>f4=close
+
+matchbox: Cant find a keycode for keysym 65480
+matchbox: ignoring key shortcut f11=fullscreen
+
+Failed to get root pixmap id
+matchbox-desktop: loading /usr/lib/matchbox/desktop/tasks.so with args ( None )
+matchbox-desktop: loading /usr/lib/matchbox/desktop/dotdesktop.so with args ( None )
+mb-applet-menu-launcher: bonobo-browser.desktop has no icon, png or name
+mb-applet-menu-launcher: failed to open /usr/local/share/applications
+mb-applet-menu-launcher: failed to open //.applications
+user_overides is (nil)
+mb-desktop-dotdesktop: failed to open /usr/local/share/applications
+mb-desktop-dotdesktop: failed to open //.applications
+mb-applet-menu-launcher: bonobo-browser.desktop has no icon, png or name
+mb-applet-menu-launcher: failed to open /usr/local/share/applications
+mb-applet-menu-launcher: failed to open //.applications
+
+root@freescale /Zumi/debug_ov22$ 
+root@freescale /Zumi/debug_ov22$ 
+root@freescale /Zumi/debug_ov22$ ls
+camera_sensor_clock.ko  ipu_fg_overlay_sdc.ko   mxc_v4l2_capture.ko
+ipu_bg_overlay_sdc.ko   ipu_prp_enc.ko          ov2281_camera_mipi.ko
+ipu_csi_enc.ko          ipu_still.ko            ov5640_camera_mipi.ko
+root@freescale /Zumi/debug_ov22$ 
+root@freescale /Zumi/debug_ov22$ 
+root@freescale /Zumi/debug_ov22$ insmod camera_sensor_clock.ko 
+insmroot@freescale /Zumi/debug_ov22$ insmod ipu_bg_overlay_sdc.ko 
+insmroot@freescale /Zumi/debug_ov22$ insmod ipu_fg_overlay_sdc.ko 
+insmroot@freescale /Zumi/debug_ov22$ insmod ipu_csi_enc.ko 
+insmroot@freescale /Zumi/debug_ov22$ insmod ipu_prp_enc.ko 
+insmroot@freescale /Zumi/debug_ov22$ insmod ipu_still.ko 
+insmroot@freescale /Zumi/debug_ov22$ insmod mxc_v4l2_capture.ko 
+root@freescale /Zumi/debug_ov22$ 
+root@freescale /Zumi/debug_ov22$ 
+root@freescale /Zumi/debug_ov22$ insmod ov5640_camera_mipi.ko 
+ov5640_probe ZS7:1 59565955
+root@freescale /Zumi/debug_ov22$ 
+root@freescale /Zumi/debug_ov22$ 
+root@freescale /Zumi/debug_ov22$ cd ../../unit_tests/
+root@freescale /unit_tests$ ./mxc_v4l2_capture.out -d /dev/video1 -iw 640 -ih 48
+0 -ow 640 -oh 480 -r 0 -fr 15 test3.yuv
+in_width = 640, in_height = 480mxc_v4l_open ZS5:2
+
+out_width = 640, out_height = 4csi_enc_select ZS5:7 -1173667840
+80
+top = 0, left = 0
+mxc_v4l_open ZS5:3 0 
+ZUMI : On Open: Input to ipu size is 640 x 480 format = 59565955
+ipu_csi_init_interface ZS6:3 59565955
+IPU_PIX_FMT_YUYV:56595559 IPU_PIX_FMT_UYVY:59565955 IPU_PIX_FMT_RGB24:33424752 IPU_PIX_FMT_BGR24:33524742 IPU_PIX_FMT_GENERIC:30555049 IPU_PIX2
+ZS6:5 IPU_PIX_FMT_UYVY: 
+mipi_csi2_set_datatype ZS2:30
+ZS1:5600
+sensor chip is ov5640_mipi_camera
+sensor supported frame size:
+ 640x480
+ 320x240
+ 720x480
+ 720x576
+ 1280x720
+ 1920x1080
+ 2592x1944
+ 176x144
+ 1024x768
+sensor frame format: UYVY
+sensor frame format: UYVY
+sensor frame format: UYVY
+sensor frame fomipi_csi2_set_datatype ZS2:30
+rmat: UYVY
+sensor frame format: UYVY
+sensor frame format: UYVY
+sensor frame format: UYVY
+sensor frame format: UYVY
+sensor frame format: UYVY
+ZS1:2800
+ipu_csi_init_interface ZS6:3 59565955
+IPU_PIX_FMT_YUYV:56595559 IPU_PIX_FMT_UYVY:59565955 IPU_PIX_FMT_RGB24:33424752 IPU_PIX_FMT_BGR24:33524742 IPU_PIX_FMT_GENERIC:30555049 IPU_PIX2
+ZS6:5 IPU_PIX_FMT_UYVY: 
+         Width = 640     Height = 480    Image size = 460800
+         pixelformat = 842093913
+mxc_streamon ZS5:8
+csi_enc_enabling_tasks ZS5:10
+csi_enc_setup : ZS5:11
+ZS5:12 -- CONFIG_MXC_MIPI_CSI2
+csi_enc_setup : ZS5:13 -- sensor_protocol : 0
+ZS5:14 -- v2f.fmt.pix.pixelformat-- 32315559 
+csi_enc_setup ZS5:14 -1075226176 
+ipu_init_channel ZS5:17
+ipu_init_channel ZS5:18 -- 268435392 
+ipu_init_channel ZS5:19
+ipu_init_channel ZS5:21
+csi_enc_enabling_tasks ZS5:10 0 
+mxc_streamon ZS5:9 0
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+mxc_v4l_dqueue ZS5:1
+buf.index 1mxc_v4l_dqueue ZS5:1
+
+buf.index 2mxc_v4l_dqueue ZS5:1
+
+buf.index 0
+root@freescale /unit_tests$ 
+root@freescale /unit_tests$ 
+root@freescale /unit_tests$ 
+root@freescale /unit_tests$

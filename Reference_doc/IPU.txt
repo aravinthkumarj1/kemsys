@@ -1,0 +1,97 @@
+MIPI DPHY clock should match the camera sensor clock
+
+This seems to have been a big part of the missing EOF interrupt
+
+
+///////////////////////////////////////////
+IPU_CONF : check if your enabled CSI?
+IPUx_INT_STAT_1: check if get eof for CSI channel?
+IPUx_CSI0_DI:
+IPUx_CSI0_SENS_CONF: 
+IPUx_CSI0_SENS_FRM_SIZE:
+IPUx_CSI0_ACT_FRM_SIZE:
+///////////////////////////////////////////
+ipu_init_channel ZS11:0 --IPU_CONF : 0x200007E2
+0010 0000 0000 0000 0000 0111 1110  0010
+
+CSI1_DATA_SOURCE 29th bit--- MIPI
+
+
+VDI_EN
+SISG_EN 
+DMFC_EN -1 
+DC_EN - 1
+SMFC_EN  -1
+DI1_EN -1
+DI0_EN -1
+DP_EN - 1
+Reserved
+IRT_EN
+IC_EN  
+CSI1_EN = 1
+CSI0_EN  
+
+Zumi CSI_SENS_CONF*********** = 0x04009300
+
+CSI0_DATA_DEST 26-24  == 100
+
+CSI0_EXT_VSYNC 15th bit - External VSYNC mode 1
+CSI0_DATA_WIDTH 14-11  === 0010
+
+CSI0_SENS_DATA_FORMAT 8-10th bit = 0x011 Bayer or Generic data
+
+
+
+ 
+Zumi CSI_ACT_FRM_SIZE = 0x0437077F
+
+
+Zumi CSI_SENS_FRM_SIZE= 0x0437077F
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************************************
+mxc_streamon ZS5:8
+csi_enc_enabling_tasks ZS5:10
+csi_enc_setup : ZS5:11
+ZS5:12 -- CONFIG_MXC_MIPI_CSI2
+csi_enc_setup : ZS5:13 -- sensor_protocol : 0
+ZS5:14 -- v2f.fmt.pix.pixelformat-- 32315559 
+csi_enc_setup ZS5:14 -1075250816 
+ipu_init_channel ZS5:17
+ipu_init_channel ZS5:18 --channel : fffffc0 
+ipu_init_channel ZS11:0 --IPU_CONF : 0 
+ipu_init_channel ZS5:19
+ipu_init_channel ZS5:21
+_ipu_csi_init ZS11:04 CSI_ACT_FRM_SIZE: 2 
+Zumi CSI_SENS_CONF*********** = 0x04009300 CSI_ACT_FRM_SIZE = 0x0437077F
+csi_enc_enabling_tasks ZS5:10 0 
+mxc_streamon ZS5:9 0
+**************************************************
+ipu_irq_handler ZS11:1 IPU_INT_STAT-: 0
+
+Zumi CSI_SENS_CONF*********** = 0x04009300 
+CSI_ACT_FRM_SIZE = 0x0437077F
+ipu_init_channel ZS11:0 --IPU_CONF : 0
+_ipu_csi_init ZS11:04 CSI_ACT_FRM_SIZE: 2
